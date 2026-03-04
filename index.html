@@ -14,6 +14,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="index.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body>
 
@@ -30,6 +32,9 @@
 <!-- Custom Cursor -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Gradient Mesh Background -->
+<div class="gradient-mesh"></div>
 
 <!-- Canvas BG -->
 <canvas id="bgCanvas"></canvas>
@@ -202,13 +207,7 @@
     </div>
   </div>
 
-  <div class="hero-badge">
-    <div class="hero-badge-inner">
-      <div class="hero-badge-text">EST.</div>
-      <div class="hero-badge-num">2025</div>
-      <div class="hero-badge-text">VIETNAM</div>
-    </div>
-  </div>
+  <div class="hero-globe" id="heroGlobe"></div>
 
   <div class="scroll-indicator">
     <div class="scroll-indicator-text">Scroll</div>
@@ -247,7 +246,7 @@
 
         <div class="about-highlight">
           <div class="highlight-item">
-            <div class="highlight-icon">🌱</div>
+            <div class="highlight-icon"><div class="lottie-icon" data-lottie="plant"></div></div>
             <div class="highlight-label">
               <span data-lang="vi" class="active">Nông nghiệp bền vững</span>
               <span data-lang="en">Sustainable Agriculture</span>
@@ -255,7 +254,7 @@
             </div>
           </div>
           <div class="highlight-item">
-            <div class="highlight-icon">💡</div>
+            <div class="highlight-icon"><div class="lottie-icon" data-lottie="idea"></div></div>
             <div class="highlight-label">
               <span data-lang="vi" class="active">Công nghệ cao</span>
               <span data-lang="en">High Technology</span>
@@ -263,7 +262,7 @@
             </div>
           </div>
           <div class="highlight-item">
-            <div class="highlight-icon">🌍</div>
+            <div class="highlight-icon"><div class="lottie-icon" data-lottie="globe"></div></div>
             <div class="highlight-label">
               <span data-lang="vi" class="active">Chuyển đổi xanh</span>
               <span data-lang="en">Green Transition</span>
@@ -271,7 +270,7 @@
             </div>
           </div>
           <div class="highlight-item">
-            <div class="highlight-icon">📊</div>
+            <div class="highlight-icon"><div class="lottie-icon" data-lottie="chart"></div></div>
             <div class="highlight-label">
               <span data-lang="vi" class="active">Dữ liệu thông minh</span>
               <span data-lang="en">Smart Data</span>

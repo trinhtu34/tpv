@@ -1,5 +1,6 @@
 /* ============================================
    TPV Technology - Professional JavaScript
+   Enhanced with 3D Globe, Lottie, Parallax
    ============================================ */
 
 // ====== LANGUAGE SYSTEM ======
@@ -33,7 +34,6 @@ const tickerContent = {
 
 function updateTicker() {
   const text = tickerContent[currentLang];
-  // Duplicate for seamless loop
   document.getElementById('tickerText').textContent = text + '  ·  ' + text + '  ·  ';
 }
 updateTicker();
@@ -56,16 +56,9 @@ function onScroll() {
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
   const progress = (scrollY / docHeight) * 100;
 
-  // Nav shrink
   navbar.classList.toggle('scrolled', scrollY > 50);
-
-  // Progress bar
   progressBar.style.width = progress + '%';
-
-  // Back to top
   backToTop.classList.toggle('visible', scrollY > 400);
-
-  // Active nav link
   updateActiveNav();
 }
 
@@ -98,8 +91,6 @@ const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // Optionally unobserve for performance
-      // revealObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
@@ -132,12 +123,9 @@ function animateCounter(el) {
   function update(now) {
     const elapsed = now - start;
     const progress = Math.min(elapsed / duration, 1);
-    // Ease out cubic
     const eased = 1 - Math.pow(1 - progress, 3);
     const current = target * eased;
-
     el.textContent = (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
-
     if (progress < 1) requestAnimationFrame(update);
   }
   requestAnimationFrame(update);
@@ -163,7 +151,6 @@ function animateRing() {
 }
 animateRing();
 
-// Hover effects for interactive elements
 const hoverTargets = 'a, button, .service-card, .mission-card, .goal-card, .project-card, .contact-item, .highlight-item, .form-input';
 document.querySelectorAll(hoverTargets).forEach(el => {
   el.addEventListener('mouseenter', () => {
@@ -234,7 +221,6 @@ for (let i = 0; i < numParticles; i++) {
   });
 }
 
-// Mouse interaction with particles
 let mouseCanvas = { x: -1000, y: -1000 };
 document.addEventListener('mousemove', e => {
   mouseCanvas.x = e.clientX;
@@ -244,7 +230,6 @@ document.addEventListener('mousemove', e => {
 function drawParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Grid
   ctx.strokeStyle = 'rgba(26,140,78,0.04)';
   ctx.lineWidth = 1;
   const gridSize = 80;
@@ -259,7 +244,6 @@ function drawParticles() {
     ctx.stroke();
   }
 
-  // Connections
   for (let i = 0; i < particles.length; i++) {
     for (let j = i + 1; j < particles.length; j++) {
       const dx = particles[i].x - particles[j].x;
@@ -276,9 +260,7 @@ function drawParticles() {
     }
   }
 
-  // Particles
   particles.forEach(p => {
-    // Mouse repulsion
     const dmx = p.x - mouseCanvas.x;
     const dmy = p.y - mouseCanvas.y;
     const mouseDist = Math.sqrt(dmx * dmx + dmy * dmy);
@@ -293,7 +275,6 @@ function drawParticles() {
     ctx.fillStyle = `rgba(26,140,78,${p.opacity})`;
     ctx.fill();
 
-    // Mouse proximity glow
     if (mouseDist < 150) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size + 2, 0, Math.PI * 2);
@@ -314,14 +295,272 @@ function drawParticles() {
 }
 drawParticles();
 
-// ====== PARALLAX EFFECT (subtle) ======
+// ====== ENHANCED PARALLAX ======
 window.addEventListener('scroll', () => {
   const scrollY = window.scrollY;
   const hero = document.getElementById('hero');
+  
+  // Hero parallax
   if (hero && scrollY < window.innerHeight) {
     hero.style.transform = `translateY(${scrollY * 0.15}px)`;
     hero.style.opacity = 1 - (scrollY / window.innerHeight) * 0.4;
   }
+
+  // Section header parallax (subtle)
+  document.querySelectorAll('.section-header').forEach(header => {
+    const rect = header.getBoundingClientRect();
+    const centerY = rect.top + rect.height / 2;
+    const viewCenter = window.innerHeight / 2;
+    const offset = (centerY - viewCenter) * 0.03;
+    header.style.transform = `translateY(${offset}px)`;
+  });
 }, { passive: true });
 
+// ====== CARD TILT GLOW (mouse follow) ======
+document.querySelectorAll('.project-card, .service-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--mouse-x', x + '%');
+    card.style.setProperty('--mouse-y', y + '%');
+  });
+});
 
+// ====== 3D GLOBE (Three.js) ======
+function initGlobe() {
+  const container = document.getElementById('heroGlobe');
+  if (!container || typeof THREE === 'undefined') return;
+
+  const width = 420;
+  const height = 420;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+  camera.position.z = 2.8;
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.appendChild(renderer.domElement);
+
+  // Earth texture URLs (using reliable CDN sources)
+  const textureLoader = new THREE.TextureLoader();
+  const earthTexture = 'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg';
+  const bumpMap = 'https://unpkg.com/three-globe/example/img/earth-topology.png';
+
+  // Earth sphere with texture
+  const earthGeo = new THREE.SphereGeometry(1, 64, 64);
+  const earthMat = new THREE.MeshPhongMaterial({
+    map: textureLoader.load(earthTexture),
+    bumpMap: textureLoader.load(bumpMap),
+    bumpScale: 0.05,
+    specular: new THREE.Color(0x333333),
+    shininess: 15,
+    transparent: true,
+    opacity: 0.98
+  });
+  const earth = new THREE.Mesh(earthGeo, earthMat);
+  scene.add(earth);
+
+  // Atmosphere glow
+  const atmosphereGeo = new THREE.SphereGeometry(1.02, 64, 64);
+  const atmosphereMat = new THREE.ShaderMaterial({
+    vertexShader: `
+      varying vec3 vNormal;
+      void main() {
+        vNormal = normalize(normalMatrix * normal);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `,
+    fragmentShader: `
+      varying vec3 vNormal;
+      void main() {
+        float intensity = pow(0.6 - dot(vNormal, vec3(0, 0, 1.0)), 4.0);
+        gl_FragColor = vec4(0.3, 0.8, 1.0, 1.0) * intensity;
+      }
+    `,
+    blending: THREE.AdditiveBlending,
+    side: THREE.BackSide,
+    transparent: true
+  });
+  const atmosphere = new THREE.Mesh(atmosphereGeo, atmosphereMat);
+  scene.add(atmosphere);
+
+  // Cloud layer
+  const cloudGeo = new THREE.SphereGeometry(1.01, 64, 64);
+  const cloudMat = new THREE.MeshPhongMaterial({
+    map: textureLoader.load('https://unpkg.com/three-globe/example/img/earth-clouds.png'),
+    transparent: true,
+    opacity: 0.4,
+    blending: THREE.AdditiveBlending,
+    side: THREE.DoubleSide
+  });
+  const clouds = new THREE.Mesh(cloudGeo, cloudMat);
+  scene.add(clouds);
+
+  // Location dots (HQ and target markets)
+  const locations = [
+    { lat: 21.0, lon: 105.8, color: 0xCC1B1B, size: 0.04, name: 'Hanoi' },  // HQ
+    { lat: 35.7, lon: 139.7, color: 0x1A8C4E, size: 0.025, name: 'Tokyo' },  // Japan
+    { lat: 39.9, lon: 116.4, color: 0x1A8C4E, size: 0.025, name: 'Beijing' },  // China
+    { lat: 48.9, lon: 2.35, color: 0x1A8C4E, size: 0.025, name: 'Paris' },   // EU
+  ];
+
+  locations.forEach(loc => {
+    const phi = (90 - loc.lat) * (Math.PI / 180);
+    const theta = (loc.lon + 180) * (Math.PI / 180);
+    const x = -Math.sin(phi) * Math.cos(theta);
+    const y = Math.cos(phi);
+    const z = Math.sin(phi) * Math.sin(theta);
+
+    const dotGeo = new THREE.SphereGeometry(loc.size, 16, 16);
+    const dotMat = new THREE.MeshBasicMaterial({ color: loc.color });
+    const dot = new THREE.Mesh(dotGeo, dotMat);
+    dot.position.set(x, y, z);
+    earth.add(dot);
+
+    // Pulse ring for HQ
+    if (loc.color === 0xCC1B1B) {
+      const pulseGeo = new THREE.RingGeometry(0.05, 0.08, 24);
+      const pulseMat = new THREE.MeshBasicMaterial({
+        color: 0xCC1B1B, transparent: true, opacity: 0.5, side: THREE.DoubleSide
+      });
+      const pulse = new THREE.Mesh(pulseGeo, pulseMat);
+      pulse.position.set(x * 1.01, y * 1.01, z * 1.01);
+      pulse.lookAt(0, 0, 0);
+      earth.add(pulse);
+    }
+  });
+
+  // Starfield background
+  const starGeo = new THREE.BufferGeometry();
+  const starCount = 500;
+  const starPos = new Float32Array(starCount * 3);
+  for (let i = 0; i < starCount * 3; i++) {
+    starPos[i] = (Math.random() - 0.5) * 10;
+  }
+  starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+  const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.02, transparent: true, opacity: 0.6 });
+  const stars = new THREE.Points(starGeo, starMat);
+  scene.add(stars);
+
+  // Lights
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+  scene.add(ambientLight);
+
+  const sunLight = new THREE.DirectionalLight(0xffffff, 1);
+  sunLight.position.set(5, 3, 5);
+  scene.add(sunLight);
+
+  // Mouse interaction
+  let globeMouseX = 0, globeMouseY = 0;
+  document.addEventListener('mousemove', e => {
+    globeMouseX = (e.clientX / window.innerWidth - 0.5) * 0.3;
+    globeMouseY = (e.clientY / window.innerHeight - 0.5) * 0.3;
+  });
+
+  function animateGlobe() {
+    requestAnimationFrame(animateGlobe);
+    earth.rotation.y += 0.002;
+    earth.rotation.x += (globeMouseY * 0.3 - earth.rotation.x) * 0.02;
+    earth.rotation.y += (globeMouseX * 0.3) * 0.01;
+    
+    clouds.rotation.y += 0.0005;
+    clouds.rotation.x += 0.0001;
+    
+    stars.rotation.y -= 0.0002;
+    
+    renderer.render(scene, camera);
+  }
+  animateGlobe();
+}
+
+// Init globe after page load
+window.addEventListener('load', () => {
+  setTimeout(initGlobe, 500);
+});
+
+// ====== LOTTIE ANIMATED ICONS ======
+function initLottieIcons() {
+  if (typeof lottie === 'undefined') return;
+
+  const lottieConfigs = {
+    plant: {
+      path: 'https://assets2.lottiefiles.com/packages/lf20_4kx2q32n.json',
+      fallback: '🌱'
+    },
+    idea: {
+      path: 'https://assets2.lottiefiles.com/packages/lf20_ydo1amjm.json',
+      fallback: '💡'
+    },
+    globe: {
+      path: 'https://assets10.lottiefiles.com/packages/lf20_bq485nmk.json',
+      fallback: '🌍'
+    },
+    chart: {
+      path: 'https://assets2.lottiefiles.com/packages/lf20_dews3j6m.json',
+      fallback: '📊'
+    }
+  };
+
+  document.querySelectorAll('.lottie-icon').forEach(el => {
+    const type = el.dataset.lottie;
+    const config = lottieConfigs[type];
+    if (!config) return;
+
+    try {
+      const anim = lottie.loadAnimation({
+        container: el,
+        renderer: 'svg',
+        loop: true,
+        autoplay: false,
+        path: config.path
+      });
+
+      // Play on hover of parent highlight-item
+      const parent = el.closest('.highlight-item');
+      if (parent) {
+        // Auto-play with intersection observer
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              anim.play();
+            } else {
+              anim.pause();
+            }
+          });
+        }, { threshold: 0.5 });
+        observer.observe(parent);
+      }
+
+      // Fallback if animation fails to load
+      anim.addEventListener('data_failed', () => {
+        el.textContent = config.fallback;
+        el.style.fontSize = '1.4rem';
+        el.style.display = 'flex';
+        el.style.alignItems = 'center';
+        el.style.justifyContent = 'center';
+      });
+
+      // Also set a timeout fallback
+      setTimeout(() => {
+        if (!anim.isLoaded) {
+          el.textContent = config.fallback;
+          el.style.fontSize = '1.4rem';
+          el.style.display = 'flex';
+          el.style.alignItems = 'center';
+          el.style.justifyContent = 'center';
+        }
+      }, 5000);
+
+    } catch (e) {
+      el.textContent = config.fallback;
+      el.style.fontSize = '1.4rem';
+    }
+  });
+}
+
+window.addEventListener('load', () => {
+  setTimeout(initLottieIcons, 1000);
+});
