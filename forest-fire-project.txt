@@ -1,0 +1,234 @@
+🌲 Hệ thống Giám sát Lâm nghiệp Số hóa
+Tích hợp AI – GIS – Blockchain
+Nền tảng điều hành lâm nghiệp thế hệ mới
+🎯 Tầm nhìn chiến lược
+
+Trong bối cảnh biến đổi khí hậu và áp lực bảo vệ rừng ngày càng gia tăng, ngành lâm nghiệp cần chuyển đổi từ mô hình tuần tra thủ công – phản ứng thụ động sang mô hình giám sát chủ động – ra quyết định dựa trên dữ liệu (Data-Driven Forestry Governance).
+
+Hệ thống được thiết kế để:
+
+Phát hiện cháy rừng sớm bằng AI
+
+Theo dõi biến động rừng theo quy định pháp luật
+
+Hỗ trợ điều hành trực quan trên nền tảng GIS
+
+Minh bạch hóa trách nhiệm bằng Blockchain
+
+Sẵn sàng triển khai MVP trong 3 tháng
+
+Tuân thủ đầy đủ:
+
+Luật Lâm nghiệp
+
+Nghị định 156/2018/NĐ-CP
+
+Thông tư 33/2018/TT-BNNPTNT
+
+🛰️ 1. Giám sát & Cảnh báo Cháy rừng bằng AI
+4
+Công nghệ cốt lõi
+
+YOLOv8 + kỹ thuật SAHI (Small Object Detection)
+
+Phân tích ảnh 4K từ flycam
+
+Tích hợp dữ liệu thời tiết (nhiệt độ, độ ẩm, lượng mưa)
+
+Tính toán chỉ số nguy cơ cháy (MNI)
+
+Phân cấp cảnh báo theo chuẩn quốc gia
+
+Cấp I – V theo Nghị định 156
+
+Tự động hiển thị màu cảnh báo trên bản đồ GIS
+
+Gửi cảnh báo thời gian thực về Mobile App
+
+Kết quả
+
+Phát hiện sớm đốm lửa nhỏ từ độ cao 200m
+
+Giảm false positive nhờ AI học tăng cường
+
+Tạo timeline xử lý sự cố minh bạch
+
+🌳 2. Theo dõi Biến động & Mất rừng
+4
+Phương pháp
+
+Ảnh trực giao (Orthophoto) từ WebODM
+
+DeepLabV3+ Semantic Segmentation
+
+So sánh T₀ – T₁ (Change Detection)
+
+Tích hợp pháp lý
+
+Chồng lớp quy hoạch 3 loại rừng
+
+Phân loại:
+
+Phá rừng trái phép
+
+Cháy rừng
+
+Khai thác hợp pháp
+
+Chuyển đổi mục đích
+
+Giá trị
+
+Tự động tạo polygon cảnh báo
+
+Xuất báo cáo theo Thông tư 33
+
+Hỗ trợ kiểm lâm xác minh nhanh tại thực địa
+
+🗺️ 3. Nền tảng GIS & Mobile Offline-First
+4
+Mobile App (Flutter + MapLibre)
+
+Bản đồ MBTiles offline
+
+GPS thời gian thực
+
+Check-in hiện trường
+
+Đồng bộ khi có mạng
+
+GIS Dashboard (Web)
+
+Heatmap nguy cơ cháy
+
+Theo dõi vị trí drone
+
+Thống kê tuần tra
+
+Điều hành tập trung
+
+🔐 4. Minh bạch & Truy xuất bằng Blockchain
+4
+
+Sử dụng Hyperledger Fabric (Permissioned Blockchain)
+
+Không lưu ảnh – chỉ lưu bằng chứng số
+
+Hash ảnh phát hiện cháy
+
+Thời gian & tọa độ GPS
+
+AI Confidence
+
+Check-in kiểm lâm
+
+Kết quả
+
+Tạo timeline không thể chỉnh sửa:
+
+10:00 – AI phát hiện cháy
+10:05 – Kiểm lâm nhận tin
+10:30 – Kiểm lâm có mặt
+
+Phục vụ:
+
+Kiểm toán nội bộ
+
+Tranh chấp trách nhiệm
+
+Thanh tra
+
+⚙️ 5. Kiến trúc Công nghệ
+
+Mô hình: Event-Driven Microservices
+
+Stack chính
+
+.NET 8 Backend
+
+Python AI Workers
+
+RabbitMQ (Event Bus)
+
+PostgreSQL + PostGIS
+
+MinIO (S3-compatible)
+
+Kubernetes
+
+WebODM
+
+Lợi thế
+
+Xử lý ảnh nặng tách biệt khỏi API
+
+Mở rộng ngang (Horizontal Scaling)
+
+Tối ưu cho dữ liệu Raster lớn
+
+📅 Lộ trình MVP – 12 tuần
+Giai đoạn 1 (Tuần 1–4)
+
+Hạ tầng Cloud/K8s
+
+Chuẩn hóa PostGIS
+
+Mobile hiển thị bản đồ offline
+
+Flycam DataHub upload chunked
+
+Giai đoạn 2 (Tuần 5–8)
+
+AI phát hiện cháy
+
+AI biến động rừng
+
+Dashboard điều hành
+
+Giai đoạn 3 (Tuần 9–12)
+
+Triển khai Blockchain
+
+Module báo cáo hành chính
+
+UAT thực địa & Go-live
+
+👥 Đội ngũ triển khai
+
+1 PM / Scrum Master
+
+1 Solution Architect
+
+2 Backend .NET
+
+1 AI Engineer
+
+1 Mobile Developer
+
+1 Frontend
+
+1 GIS Specialist
+
+1 QA
+
+1 Blockchain Engineer (Part-time)
+
+Hoạt động theo Agile Scrum – 6 Sprint.
+
+🚀 Tác động Chiến lược
+Vấn đề hiện tại	Giải pháp hệ thống
+Báo cháy chậm	AI phát hiện sớm
+Dữ liệu phân tán	GIS tập trung
+Tranh chấp trách nhiệm	Blockchain minh bạch
+Thiếu dữ liệu thời gian thực	Dashboard trực quan
+🌍 Tầm nhìn dài hạn
+
+Hệ thống có thể mở rộng thành:
+
+Trung tâm điều hành lâm nghiệp cấp tỉnh/quốc gia
+
+Tích hợp IoT cảm biến rừng
+
+Kết nối dữ liệu khí tượng
+
+Phục vụ kiểm kê rừng tự động

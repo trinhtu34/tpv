@@ -1,0 +1,119 @@
+===================================================================
+HỆ THỐNG QUẢN LÝ KHU CÔNG NGHIỆP CẤP TỈNH
+Industrial Park Management System
+===================================================================
+
+📌 TỔNG QUAN DỰ ÁN
+-------------------------------------------------------------------
+Nền tảng quản lý toàn diện các khu công nghiệp (KCN) cấp tỉnh,
+tích hợp bản đồ thực địa GIS, giám sát môi trường và quản lý
+tuân thủ pháp luật. Hệ thống hỗ trợ cán bộ giám sát và lãnh đạo
+trong việc theo dõi, đánh giá và ra quyết định về hoạt động của
+các KCN trên địa bàn.
+
+Dự án được xây dựng trên nền tảng web hiện đại, sử dụng bản đồ
+vệ tinh và hành chính để trực quan hóa dữ liệu không gian, kết
+hợp với các biểu đồ thống kê và hệ thống cảnh báo thông minh.
+
+
+🎯 MỤC TIÊU
+-------------------------------------------------------------------
+• Số hóa toàn bộ quy trình quản lý KCN cấp tỉnh
+• Trực quan hóa dữ liệu KCN trên bản đồ GIS thời gian thực
+• Giám sát môi trường (nước, không khí, ồn-rung) tại các KCN
+• Quản lý tuân thủ pháp luật và giấy phép của nhà đầu tư
+• Hỗ trợ lãnh đạo ra quyết định thông qua dashboard tổng hợp
+• Cảnh báo sớm các vi phạm và rủi ro môi trường
+
+
+⚙️ TÍNH NĂNG CHÍNH
+-------------------------------------------------------------------
+
+1. BẢN ĐỒ GIS TƯƠNG TÁC
+   - Hiển thị vị trí các KCN trên bản đồ vệ tinh và hành chính
+   - Phân lớp hiển thị: KCN, nhà đầu tư, điểm quan trắc, cảnh báo
+   - Mã màu trạng thái lấp đầy (xanh/vàng/đỏ)
+   - Click chọn KCN để xem thông tin chi tiết
+   - Hỗ trợ thêm mới KCN bằng cách chọn vị trí trên bản đồ
+
+2. QUẢN LÝ KHU CÔNG NGHIỆP
+   - Danh sách KCN với tìm kiếm và lọc theo địa bàn
+   - Thông tin chi tiết: diện tích, tỷ lệ lấp đầy, chủ đầu tư
+   - Thêm mới, chỉnh sửa, xóa KCN (vai trò cán bộ giám sát)
+   - Quản lý danh sách nhà đầu tư trong từng KCN
+
+3. QUẢN LÝ NHÀ ĐẦU TƯ
+   - Thông tin doanh nghiệp: tên, ngành nghề, trạng thái
+   - Vị trí trên bản đồ và ảnh thực địa
+   - Theo dõi giấy phép (ĐTM, PCCC...) và hạn hiệu lực
+   - Biên bản tuân thủ và hạn khắc phục vi phạm
+
+4. GIÁM SÁT MÔI TRƯỜNG
+   - Quản lý điểm quan trắc: nước, không khí, ồn-rung
+   - Theo dõi trạng thái hoạt động của trạm quan trắc
+   - Ngưỡng cảnh báo và tần suất đo đạc
+   - Hiển thị điểm quan trắc trên bản đồ với mã màu trạng thái
+
+5. HỆ THỐNG CẢNH BÁO & SỰ CỐ
+   - Cảnh báo tự động khi vượt ngưỡng môi trường
+   - Phân loại mức độ: thấp, trung bình, cao
+   - Theo dõi trạng thái xử lý: mở, đang xử lý, đóng
+   - Hiển thị cảnh báo trên bản đồ với biểu tượng cảnh báo
+
+6. DASHBOARD LÃNH ĐẠO
+   - Tổng quan quỹ đất: số KCN, tổng diện tích, tỷ lệ lấp đầy
+   - Thống kê môi trường & tuân thủ: cảnh báo, vi phạm, giấy phép
+   - Biểu đồ phân bố diện tích theo huyện/thị xã
+   - Biểu đồ Top 5 KCN còn nhiều quỹ đất trống
+   - Cập nhật dữ liệu thời gian thực
+
+7. XUẤT BÁO CÁO
+   - Báo cáo tổng hợp KCN
+   - Báo cáo môi trường
+   - Báo cáo tuân thủ pháp luật
+   - Báo cáo tình trạng giấy phép
+
+
+👥 PHÂN QUYỀN NGƯỜI DÙNG
+-------------------------------------------------------------------
+• Cán bộ giám sát: Quản lý CRUD dữ liệu KCN, nhà đầu tư,
+  cập nhật thông tin thực địa
+• Lãnh đạo: Xem dashboard tổng hợp, biểu đồ thống kê,
+  theo dõi cảnh báo và ra quyết định
+
+
+🛠️ CÔNG NGHỆ SỬ DỤNG
+-------------------------------------------------------------------
+• Frontend: React 19, TypeScript, Vite
+• Bản đồ: Leaflet + React-Leaflet (GIS Map)
+  - Lớp bản đồ vệ tinh (Esri World Imagery)
+  - Lớp bản đồ hành chính (OpenStreetMap)
+• Biểu đồ: Recharts (BarChart, PieChart)
+• UI/UX: TailwindCSS 4, Lucide Icons, Motion (animation)
+• AI: Google Gemini API (hỗ trợ phân tích dữ liệu)
+• Styling: Responsive design, dark/light theme
+
+
+📊 DỮ LIỆU QUẢN LÝ
+-------------------------------------------------------------------
+• Khu công nghiệp: tên, tọa độ, diện tích, chủ đầu tư,
+  trạng thái, huyện/thị xã, ảnh thực địa
+• Nhà đầu tư: tên doanh nghiệp, ngành nghề, vị trí,
+  trạng thái hoạt động
+• Điểm quan trắc: loại (nước/không khí/ồn-rung), tọa độ,
+  ngưỡng, tần suất, trạng thái
+• Cảnh báo: loại, mức độ, thời gian, đối tượng liên quan,
+  trạng thái xử lý
+• Giấy phép: loại, số, ngày cấp, ngày hết hạn, cơ quan cấp
+• Biên bản tuân thủ: kỳ kiểm tra, tiêu chí, kết quả,
+  hạn khắc phục
+
+
+💡 GIÁ TRỊ MANG LẠI
+-------------------------------------------------------------------
+• Tập trung hóa dữ liệu quản lý KCN trên một nền tảng duy nhất
+• Giảm thời gian tra cứu và tổng hợp báo cáo cho cán bộ
+• Phát hiện sớm các vấn đề môi trường và vi phạm pháp luật
+• Hỗ trợ lãnh đạo ra quyết định dựa trên dữ liệu trực quan
+• Nâng cao hiệu quả quản lý nhà nước đối với các KCN
+• Minh bạch hóa thông tin về tình trạng hoạt động của KCN

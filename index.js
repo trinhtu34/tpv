@@ -164,7 +164,7 @@ function animateRing() {
 animateRing();
 
 // Hover effects for interactive elements
-const hoverTargets = 'a, button, .service-card, .mission-card, .goal-card, .contact-item, .highlight-item, .form-input';
+const hoverTargets = 'a, button, .service-card, .mission-card, .goal-card, .project-card, .contact-item, .highlight-item, .form-input';
 document.querySelectorAll(hoverTargets).forEach(el => {
   el.addEventListener('mouseenter', () => {
     cursor.classList.add('hover');

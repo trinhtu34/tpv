@@ -1,0 +1,166 @@
+===================================================================
+HỆ THỐNG QUẢN LÝ DOANH NGHIỆP ERP
+Enterprise Resource Planning System
+===================================================================
+
+📌 TỔNG QUAN DỰ ÁN
+-------------------------------------------------------------------
+Hệ thống quản lý doanh nghiệp ERP toàn diện, được xây dựng trên
+nền tảng ASP.NET Zero với kiến trúc multi-tenant (đa tổ chức),
+cho phép nhiều doanh nghiệp sử dụng chung một hệ thống nhưng dữ
+liệu được cách ly hoàn toàn. Hệ thống tích hợp các module quản
+lý nhân sự, chấm công, tuyển dụng, họp trực tuyến, AI Chatbot
+và hệ thống báo cáo chuyên nghiệp.
+
+Dự án hướng tới việc số hóa toàn bộ quy trình vận hành doanh
+nghiệp, từ quản lý nhân sự, theo dõi chấm công, xử lý đơn nghỉ
+phép, lập kế hoạch tuyển dụng đến tổ chức họp trực tuyến và hỗ
+trợ ra quyết định bằng AI.
+
+
+🎯 MỤC TIÊU
+-------------------------------------------------------------------
+• Xây dựng nền tảng ERP đa tổ chức (multi-tenant) linh hoạt
+• Số hóa quy trình quản lý nhân sự và chấm công
+• Tự động hóa quy trình phê duyệt và quản lý giấy phép
+• Tích hợp họp trực tuyến với ghi âm và lịch sử tham gia
+• Ứng dụng AI Chatbot hỗ trợ người dùng trong hệ thống
+• Cung cấp hệ thống báo cáo chuyên nghiệp với Telerik Reporting
+• Hỗ trợ triển khai linh hoạt bằng Docker và Kubernetes
+
+
+⚙️ TÍNH NĂNG CHÍNH
+-------------------------------------------------------------------
+
+1. QUẢN LÝ TỔ CHỨC & NHÂN SỰ (HRM)
+   - Quản lý cơ cấu phòng ban dạng cây phân cấp (parent-child)
+   - Quản lý chức vụ/vị trí công việc
+   - Hồ sơ nhân viên: thông tin cá nhân, phòng ban, chức vụ,
+     avatar, liên kết tài khoản người dùng
+   - Phân quyền theo vai trò (Role-based Access Control)
+   - Reset mật khẩu nhân viên
+
+2. CHẤM CÔNG & QUẢN LÝ CA LÀM VIỆC
+   - Tích hợp thiết bị chấm công (quản lý Device: IP, Port,
+     Serial Number, trạng thái kết nối)
+   - Ghi nhận chấm công: check-in/check-out, phương thức xác thực
+   - Quản lý ca làm việc (WorkShift): giờ bắt đầu, kết thúc,
+     ca qua đêm
+   - Theo dõi lịch sử chấm công theo nhân viên
+
+3. QUẢN LÝ ĐƠN NGHỈ PHÉP
+   - Tạo và quản lý đơn xin nghỉ phép
+   - Phân loại loại nghỉ (nghỉ phép, nghỉ ốm, nghỉ không lương...)
+   - Quy trình phê duyệt: người phê duyệt, ngày phê duyệt
+   - Theo dõi trạng thái đơn nghỉ
+
+4. TUYỂN DỤNG
+   - Lập kế hoạch tuyển dụng theo phòng ban
+   - Quản lý tin tuyển dụng (Job Posting)
+   - Theo dõi trạng thái và tiến độ tuyển dụng
+   - Liên kết kế hoạch tuyển dụng với phòng ban cần tuyển
+
+5. HỌP TRỰC TUYẾN (VIRTUAL MEETING)
+   - Tạo và quản lý phòng họp trực tuyến
+   - Mời thành viên tham gia (MeetAssign)
+   - Phòng chờ (Waiting Room) và mật khẩu bảo mật
+   - Ghi âm cuộc họp và lưu trữ trên S3
+   - Lịch sử tham gia: thời gian vào/ra, thời lượng,
+     trạng thái hiện diện
+   - Giới hạn số người tham gia tối đa
+
+6. AI CHATBOT
+   - Trợ lý AI tích hợp trong hệ thống ERP
+   - Quản lý hội thoại (Conversation) theo người dùng
+   - Lưu trữ lịch sử tin nhắn (phân biệt tin người dùng/AI)
+   - Hỗ trợ tra cứu thông tin và giải đáp thắc mắc
+
+7. QUẢN TRỊ HỆ THỐNG
+   - Quản lý người dùng, vai trò, phân quyền chi tiết (CRUD)
+   - Quản lý đa ngôn ngữ (Localization)
+   - Nhật ký kiểm toán (Audit Logs)
+   - Quản lý đơn vị tổ chức (Organization Units)
+   - Thuộc tính động (Dynamic Properties) cho mở rộng dữ liệu
+   - Webhook đăng ký và quản lý
+   - Tùy chỉnh giao diện (UI Customization)
+   - Quản lý phiên bản (Editions) và tính năng (Features)
+
+8. DANH MỤC & CÀI ĐẶT CHUNG
+   - Quản lý quốc gia, dân tộc
+   - Quản lý địa chỉ: Tỉnh/Thành phố, Quận/Huyện, Phường/Xã
+   - Thông tin doanh nghiệp (Tenant Info): mã số thuế, địa chỉ,
+     người đại diện
+   - Tỷ giá tiền tệ
+   - Mẫu email (Email Templates)
+
+9. BÁO CÁO
+   - Hệ thống báo cáo chuyên nghiệp với Telerik Reporting
+   - Báo cáo nhân sự (Employee Report)
+   - Xuất báo cáo đa định dạng
+   - Hỗ trợ mở rộng thêm báo cáo tùy chỉnh
+
+10. QUY TRÌNH PHÊ DUYỆT
+    - Lịch sử phê duyệt (Approval History) cho mọi đối tượng
+    - Theo dõi trạng thái phê duyệt qua từng bước
+    - Ghi nhận người phê duyệt và ghi chú
+
+
+👥 KIẾN TRÚC MULTI-TENANT
+-------------------------------------------------------------------
+• Host: Quản trị viên hệ thống, quản lý tất cả các tenant
+  (doanh nghiệp), phiên bản, cài đặt toàn cục
+• Tenant: Mỗi doanh nghiệp là một tenant độc lập, có dữ liệu
+  riêng biệt, cấu hình riêng, người dùng và phân quyền riêng
+• Hỗ trợ đăng ký tenant mới (Self-registration)
+• Quản lý subscription và tính năng theo phiên bản
+
+
+🛠️ CÔNG NGHỆ SỬ DỤNG
+-------------------------------------------------------------------
+• Backend: ASP.NET Core 5.0, C#
+• Framework: ASP.NET Zero (ABP Framework)
+• ORM: Entity Framework Core
+• Frontend: ASP.NET MVC (Razor Views), Kendo UI
+• Báo cáo: Telerik Reporting 2021
+• UI Components: Telerik UI for ASP.NET Core
+• Cơ sở dữ liệu: SQL Server
+• Lưu trữ file: MinIO (S3-compatible Object Storage)
+• Logging: Serilog + Elasticsearch
+• Background Jobs: Hangfire
+• Authentication: JWT, Identity Server
+• Containerization: Docker
+• Orchestration: Kubernetes (K8s)
+• CI/CD: Jenkins Pipeline
+
+
+📊 CÁC MODULE DỮ LIỆU
+-------------------------------------------------------------------
+• Nhân viên (Employee): mã, họ tên, ngày sinh, giới tính,
+  địa chỉ, email, SĐT, phòng ban, chức vụ, avatar
+• Phòng ban (WorkDepartment): cấu trúc cây phân cấp, mã phòng
+• Chức vụ (WorkPosition): tên, cấp quản lý
+• Chấm công (Attendance): nhân viên, thiết bị, ngày, giờ vào/ra,
+  phương thức xác thực
+• Ca làm việc (WorkShift): mã, tên, giờ bắt đầu/kết thúc
+• Đơn nghỉ phép (LeaveRequest): nhân viên, ngày bắt đầu/kết thúc,
+  loại nghỉ, lý do, trạng thái, người phê duyệt
+• Thiết bị chấm công (Device): mã, tên, IP, Port, Serial Number
+• Cuộc họp (Meeting): phòng họp, tiêu đề, mô tả, thời gian,
+  mật khẩu, URL tham gia, ghi âm
+• Kế hoạch tuyển dụng (RecruitmentPlan): mã, tên, phòng ban,
+  thời gian, trạng thái
+• AI Chat: hội thoại, tin nhắn, phân biệt user/AI
+
+
+💡 GIÁ TRỊ MANG LẠI
+-------------------------------------------------------------------
+• Tập trung hóa toàn bộ quy trình quản lý doanh nghiệp trên
+  một nền tảng duy nhất
+• Kiến trúc multi-tenant cho phép triển khai cho nhiều doanh
+  nghiệp với chi phí vận hành tối ưu
+• Tự động hóa quy trình chấm công, nghỉ phép, phê duyệt
+• Tích hợp họp trực tuyến giúp giảm chi phí di chuyển
+• AI Chatbot hỗ trợ nhân viên tra cứu thông tin nhanh chóng
+• Hệ thống báo cáo chuyên nghiệp hỗ trợ ra quyết định
+• Triển khai linh hoạt với Docker/Kubernetes, dễ dàng mở rộng
+• Phân quyền chi tiết đảm bảo an toàn dữ liệu doanh nghiệp

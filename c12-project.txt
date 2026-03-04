@@ -1,0 +1,202 @@
+===================================================================
+HỆ THỐNG QUẢN LÝ DỰ ÁN ĐẦU TƯ CÔNG & QUYẾT TOÁN HỢP ĐỒNG
+Public Investment Project & Contract Settlement Management System
+===================================================================
+
+📌 TỔNG QUAN DỰ ÁN
+-------------------------------------------------------------------
+Hệ thống quản lý toàn diện vòng đời dự án đầu tư công, từ giai
+đoạn chủ trương đầu tư, lập dự án, lựa chọn nhà thầu, ký kết
+hợp đồng, giải ngân thanh toán đến quyết toán dự án hoàn thành.
+Hệ thống được xây dựng trên nền tảng multi-tenant, phục vụ các
+cơ quan quản lý nhà nước trong việc theo dõi, giám sát và quản
+lý hiệu quả nguồn vốn đầu tư công.
+
+Dự án hướng tới số hóa toàn bộ quy trình quản lý dự án đầu tư
+công theo đúng quy định pháp luật, đảm bảo minh bạch, truy xuất
+được và hỗ trợ ra quyết định thông qua hệ thống báo cáo đa dạng.
+
+
+🎯 MỤC TIÊU
+-------------------------------------------------------------------
+• Số hóa toàn bộ vòng đời dự án đầu tư công
+• Quản lý chủ trương đầu tư và nguồn vốn minh bạch
+• Theo dõi quy trình lựa chọn nhà thầu và đấu thầu
+• Quản lý hợp đồng, nhà thầu và tiến độ thanh toán
+• Kiểm soát kế hoạch vốn và thông báo phân bổ vốn
+• Cung cấp hệ thống báo cáo tổng hợp phục vụ quyết toán
+• Quản lý hồ sơ tài liệu dự án có hệ thống
+
+
+⚙️ TÍNH NĂNG CHÍNH
+-------------------------------------------------------------------
+
+1. QUẢN LÝ CHỦ TRƯƠNG ĐẦU TƯ (Investment Policy)
+   - Lập và quản lý chủ trương đầu tư dự án
+   - Thông tin: tên dự án, chủ đầu tư, tổng mức đầu tư dự kiến
+   - Mục tiêu đầu tư, quy mô đầu tư
+   - Thời gian dự kiến bắt đầu và hoàn thành
+   - Quản lý nguồn vốn theo từng chủ trương (đa nguồn vốn)
+   - Số quyết định, ngày quyết định, file đính kèm
+   - Quản lý phiên bản (versioning) khi có điều chỉnh
+
+2. QUẢN LÝ DỰ ÁN (Project Management)
+   - Thông tin dự án: mã, tên, chủ đầu tư, loại dự án
+   - Liên kết với chủ trương đầu tư
+   - Phân loại: nhóm dự án, ngành/lĩnh vực, cấp công trình
+   - Trạng thái dự án, trạng thái thanh tra, kiểm toán
+   - Phương thức quản lý dự án
+   - Ngày khởi công thực tế, ngày hoàn thành thực tế
+   - Quản lý hạng mục công trình (Component) và giá trị
+   - Quản lý địa điểm thực hiện (tỉnh/thành, quận/huyện)
+   - Hồ sơ tài liệu dự án (số văn bản, ngày ký, cơ quan ban
+     hành, người ký, tóm tắt, file đính kèm)
+   - Theo dõi tiến độ dự án (Project Progress)
+   - Quản lý phiên bản khi có điều chỉnh dự án
+   - Chốt/khóa dữ liệu (Finalize) khi hoàn tất
+
+3. KẾ HOẠCH LỰA CHỌN NHÀ THẦU (Contractor Selection Plan)
+   - Lập kế hoạch lựa chọn nhà thầu theo dự án
+   - Số quyết định, giai đoạn, cơ quan ban hành, người ký
+   - Tên kế hoạch (tiếng Việt và tiếng Anh)
+   - File đính kèm quyết định
+   - Quản lý phiên bản
+
+4. GÓI THẦU (Bidding Package)
+   - Quản lý gói thầu theo dự án và kế hoạch lựa chọn nhà thầu
+   - Giá dự toán, giá gói thầu, giá trúng thầu
+   - Hình thức lựa chọn nhà thầu, phương thức đấu thầu
+   - Loại hợp đồng, ngành/lĩnh vực
+   - Thời gian lựa chọn nhà thầu, thời gian thực hiện hợp đồng
+   - Nguồn vốn, phương thức quản lý
+   - Hồ sơ tài liệu gói thầu (văn bản, quyết định, biên bản)
+   - Quản lý phiên bản
+
+5. QUẢN LÝ HỢP ĐỒNG (Contract Management)
+   - Hợp đồng liên kết với dự án, kế hoạch LCNT, gói thầu
+   - Số hợp đồng, tên, loại hợp đồng
+   - Đại diện chủ đầu tư, chức vụ
+   - Ngày ký, ngày hiệu lực, ngày kết thúc
+   - Giá trị hợp đồng, giá trị bảo lãnh, thuế VAT
+   - Chi tiết nhà thầu: nhà thầu chính/phụ, giá trị,
+     tỷ lệ thực hiện
+   - Quản lý phiên bản khi có phụ lục/điều chỉnh
+
+6. THANH TOÁN & GIẢI NGÂN (Payment Transaction)
+   - Quản lý giao dịch thanh toán theo hợp đồng
+   - Liên kết: dự án → gói thầu → hợp đồng → thanh toán
+   - Loại thanh toán, số chứng từ, ngày thanh toán
+   - Giá trị nghiệm thu, giá trị thanh toán
+   - Giá trị giữ lại, bảo hành, thu hồi, thuế
+   - Nguồn vốn thanh toán, loại tiền tệ
+   - Hồ sơ chứng từ thanh toán đính kèm
+   - Trạng thái thanh toán
+
+7. QUẢN LÝ VỐN (Funding Management)
+   a) Kế hoạch vốn (Funding Plan):
+      - Lập kế hoạch vốn theo năm
+      - Số quyết định, ngày quyết định
+      - Cơ quan ban hành, người ký
+      - Chi tiết phân bổ theo loại vốn (CapitalType)
+      - Dashboard tổng hợp kế hoạch vốn
+
+   b) Thông báo phân bổ vốn (Funding Allocation Notice):
+      - Thông báo phân bổ vốn theo kế hoạch
+      - Ngày nhận thông báo
+      - Chi tiết phân bổ theo loại vốn
+      - Liên kết với kế hoạch vốn tương ứng
+
+8. QUẢN LÝ NHÀ THẦU (Contractor)
+   - Thông tin doanh nghiệp: tên, mã số thuế, ĐKKD
+   - Địa chỉ trụ sở, điện thoại, email, fax, website
+   - Thông tin ngân hàng: số tài khoản, ngân hàng
+   - Người đại diện pháp luật: họ tên, chức vụ, CMND/CCCD
+   - Phân loại: nhà thầu tổ chức / cá nhân
+
+9. HỆ THỐNG BÁO CÁO
+   - Báo cáo tổng hợp dự án (Summary Report)
+   - Báo cáo trạng thái dự án (Phụ lục 2)
+   - Báo cáo phụ lục tài liệu (Appendix Document Report)
+   - Báo cáo hợp đồng (Contract Report)
+   - Báo cáo thanh toán dự án (Project Payment Report)
+   - Báo cáo thanh toán chi tiết (Payment Transaction Report)
+   - Báo cáo quản lý vốn (Funding Management Report)
+   - Xuất báo cáo Word (Word Report)
+   - Báo cáo nhân sự
+
+10. DANH MỤC HỆ THỐNG
+    - Chủ đầu tư (Project Owner) - cấu trúc phân cấp
+    - Loại dự án (Project Type)
+    - Trạng thái dự án (Project Status)
+    - Giai đoạn dự án (Project Step)
+    - Ngành/lĩnh vực (Sector Category)
+    - Nguồn vốn (Source Capital)
+    - Loại vốn (Capital Type)
+    - Hình thức lựa chọn nhà thầu (Contractor Selection Method)
+    - Loại hợp đồng (Contract Type)
+    - Danh mục tài liệu (Document Category)
+    - Ngân hàng (Bank)
+    - Cơ quan quyết toán (Settlement Agency)
+    - Bên liên quan (Stakeholder)
+    - Thông tin đơn vị (Tenant Info)
+
+11. QUẢN TRỊ HỆ THỐNG
+    - Quản lý nhân viên, phòng ban, chức vụ
+    - Quản lý người dùng, vai trò, phân quyền chi tiết
+    - Nhật ký kiểm toán (Audit Logs)
+    - Quản lý đa ngôn ngữ
+    - Ký số điện tử (Digital Sign)
+    - Thuộc tính động (Dynamic Properties)
+
+
+📋 QUY TRÌNH NGHIỆP VỤ CHÍNH
+-------------------------------------------------------------------
+Chủ trương đầu tư → Lập dự án → Kế hoạch LCNT → Gói thầu
+→ Hợp đồng → Thanh toán/Giải ngân → Quyết toán
+
+Kế hoạch vốn → Thông báo phân bổ vốn → Giải ngân theo hợp đồng
+
+
+🛠️ CÔNG NGHỆ SỬ DỤNG
+-------------------------------------------------------------------
+• Backend: ASP.NET Core 5.0, C#
+• Framework: ASP.NET Zero (ABP Framework)
+• ORM: Entity Framework Core
+• Frontend: ASP.NET MVC (Razor Views), Kendo UI
+• Báo cáo: Telerik Reporting, xuất Word
+• UI Components: Telerik UI for ASP.NET Core
+• Cơ sở dữ liệu: SQL Server
+• Lưu trữ file: MinIO (S3-compatible Object Storage)
+• Logging: Serilog + Elasticsearch
+• Authentication: JWT, Identity Server
+• Containerization: Docker
+• Ký số: Digital Signature Integration
+
+
+📊 DỮ LIỆU QUẢN LÝ
+-------------------------------------------------------------------
+• Chủ trương đầu tư: tên, chủ đầu tư, tổng mức đầu tư,
+  mục tiêu, quy mô, nguồn vốn, thời gian
+• Dự án: mã, tên, chủ đầu tư, loại, nhóm, ngành, trạng thái,
+  hạng mục, địa điểm, hồ sơ tài liệu
+• Gói thầu: mã, tên, giá dự toán/gói thầu/trúng thầu,
+  hình thức LCNT, loại hợp đồng, thời gian
+• Hợp đồng: số, tên, loại, giá trị, thuế, bảo lãnh,
+  nhà thầu chính/phụ, thời hạn
+• Thanh toán: số chứng từ, ngày, giá trị nghiệm thu,
+  giá trị thanh toán, giữ lại, bảo hành, thu hồi
+• Kế hoạch vốn: năm, quyết định, phân bổ theo loại vốn
+• Nhà thầu: thông tin doanh nghiệp, người đại diện, ngân hàng
+
+
+💡 GIÁ TRỊ MANG LẠI
+-------------------------------------------------------------------
+• Số hóa toàn bộ vòng đời dự án đầu tư công trên một nền tảng
+• Minh bạch hóa quy trình quản lý vốn và thanh toán
+• Truy xuất được toàn bộ lịch sử thay đổi (versioning)
+• Kiểm soát chặt chẽ quy trình đấu thầu và hợp đồng
+• Hệ thống báo cáo đa dạng phục vụ quyết toán và kiểm toán
+• Quản lý hồ sơ tài liệu có hệ thống, dễ tra cứu
+• Hỗ trợ ký số điện tử đảm bảo tính pháp lý
+• Phân quyền chi tiết đảm bảo an toàn dữ liệu
+• Kiến trúc multi-tenant phục vụ nhiều đơn vị quản lý

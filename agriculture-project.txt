@@ -1,0 +1,127 @@
+Nền Tảng GIS & AI Quản Lý Trồng Trọt
+Tích hợp Truy Xuất Nguồn Gốc Blockchain
+
+(Triển khai mẫu tại tỉnh Hưng Yên – có thể nhân rộng toàn quốc)
+
+🌱 Tổng Quan Dự Án
+
+Chúng tôi đang triển khai nền tảng quản lý và điều hành lĩnh vực Trồng trọt & Bảo vệ thực vật dựa trên công nghệ GIS, AI và Blockchain, giúp cơ quan quản lý và doanh nghiệp chuyển đổi từ mô hình quản lý thủ công sang mô hình điều hành thông minh, dựa trên dữ liệu và dự báo.
+
+Hệ thống hỗ trợ:
+
+Chuẩn hóa và số hóa mã số vùng trồng (PUC)
+
+Giám sát dịch hại trên bản đồ số
+
+Dự báo rủi ro bằng AI
+
+Quản lý nhật ký canh tác điện tử
+
+Tự động hóa báo cáo
+
+Truy xuất nguồn gốc minh bạch theo lô
+
+🗺️ Nền Tảng Công Nghệ
+GIS – Bản đồ điều hành thông minh
+4
+
+Quản lý vùng trồng bằng polygon chuẩn GIS
+
+Theo dõi cây trồng, mùa vụ, dịch hại theo thời gian
+
+Heatmap rủi ro và thống kê theo địa bàn
+
+Dashboard điều hành theo thời gian thực
+
+🤖 AI – Dự báo & Nhận diện dịch hại
+4
+
+Nhận diện sâu bệnh từ ảnh điện thoại/UAV
+
+Dự báo rủi ro dịch hại theo thời tiết & dữ liệu lịch sử
+
+Giảm báo giả nhờ cơ chế phản hồi và học tăng cường
+
+Hỗ trợ ra quyết định (AI đóng vai trò hỗ trợ, không thay thế chuyên gia)
+
+📱 Web & Mobile (Offline-first)
+
+Ứng dụng Flutter cho iOS/Android
+
+Hoạt động được cả khi mạng yếu (offline sync)
+
+Quản lý nhật ký canh tác điện tử
+
+Upload ảnh, minh chứng hiện trường
+
+Hệ thống cảnh báo & giao việc (ticket/SLA)
+
+🔗 Truy Xuất Nguồn Gốc Blockchain
+4
+
+Mô hình truy xuất theo lô (Lot-based Traceability)
+
+Phát hành QR truy xuất công khai
+
+Neo hash dữ liệu lên blockchain để chống sửa đổi hậu kiểm
+
+Cơ chế verify minh bạch và kiểm toán được
+
+⚙️ Kiến Trúc Hệ Thống
+
+Microservices hướng sự kiện
+
+PostgreSQL/PostGIS cho dữ liệu GIS
+
+.NET Core Backend
+
+AI Service (Python)
+
+Object Storage (S3 compatible)
+
+RabbitMQ xử lý nền
+
+Triển khai Docker/Kubernetes
+
+Thiết kế mở – mô-đun hóa – dễ tích hợp hệ thống cấp tỉnh/quốc gia.
+
+🎯 Giá Trị Mang Lại
+Đối với cơ quan quản lý
+
+Điều hành dựa trên dữ liệu thời gian thực
+
+Cảnh báo sớm rủi ro dịch hại
+
+Báo cáo tự động tuần/tháng/vụ
+
+Minh bạch và truy vết rõ ràng
+
+Đối với HTX/Doanh nghiệp
+
+Quản lý vùng trồng & lô hàng tập trung
+
+Chứng minh tuân thủ xuất khẩu
+
+Truy xuất minh bạch nâng cao thương hiệu
+
+Đối với nông hộ
+
+Nhật ký điện tử đơn giản
+
+Nhận cảnh báo và nhắc lịch tác nghiệp
+
+Hỗ trợ kỹ thuật dựa trên AI
+
+🚀 Lộ Trình Phát Triển
+
+MVP 12 tuần (đã hoàn thành giai đoạn nền tảng)
+
+Giai đoạn 1: Chuẩn hóa CSDL & AI dự báo dịch hại
+
+Giai đoạn 2: Truy xuất nguồn gốc & Blockchain
+
+Giai đoạn 3: Decision Support & Dự báo mùa vụ nâng cao
+
+🌾 Tầm Nhìn
+
+Xây dựng hệ sinh thái nông nghiệp số thông minh, nơi dữ liệu – AI – GIS – Blockchain kết nối thành một nền tảng điều hành tập trung, minh bạch và bền vững.
