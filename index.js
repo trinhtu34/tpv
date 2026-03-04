@@ -245,7 +245,7 @@ function drawParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // Grid
-  ctx.strokeStyle = 'rgba(29,185,84,0.025)';
+  ctx.strokeStyle = 'rgba(26,140,78,0.04)';
   ctx.lineWidth = 1;
   const gridSize = 80;
   for (let x = 0; x < canvas.width; x += gridSize) {
@@ -267,7 +267,7 @@ function drawParticles() {
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < 130) {
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(29,185,84,${0.08 * (1 - dist / 130)})`;
+        ctx.strokeStyle = `rgba(26,140,78,${0.06 * (1 - dist / 130)})`;
         ctx.lineWidth = 0.5;
         ctx.moveTo(particles[i].x, particles[i].y);
         ctx.lineTo(particles[j].x, particles[j].y);
@@ -290,14 +290,14 @@ function drawParticles() {
 
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(29,185,84,${p.opacity})`;
+    ctx.fillStyle = `rgba(26,140,78,${p.opacity})`;
     ctx.fill();
 
     // Mouse proximity glow
     if (mouseDist < 150) {
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size + 2, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(29,185,84,${0.15 * (1 - mouseDist / 150)})`;
+      ctx.fillStyle = `rgba(26,140,78,${0.1 * (1 - mouseDist / 150)})`;
       ctx.fill();
     }
 
@@ -332,7 +332,7 @@ if (formSubmit) {
     const btn = e.target;
     const originalText = btn.textContent;
     btn.textContent = '✓';
-    btn.style.background = '#0D8C3C';
+    btn.style.background = '#14703D';
     setTimeout(() => {
       btn.innerHTML = '';
       // Restore lang spans
