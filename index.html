@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TPV Technology Solutions & Green Transformation - Giải pháp Công nghệ & Chuyển đổi Xanh cho nông nghiệp bền vững tại Việt Nam">
+<meta name="keywords" content="TPV, nông nghiệp công nghệ cao, chuyển đổi xanh, viễn thám, AI nông nghiệp, xuất khẩu nông sản">
+<meta name="author" content="TPV Technology Solutions">
+<meta property="og:title" content="TPV – Giải pháp Công nghệ & Chuyển đổi Xanh">
+<meta property="og:description" content="Tiên phong ứng dụng công nghệ cao vào nông nghiệp bền vững tại Việt Nam">
+<meta property="og:type" content="website">
+<title>TPV – Giải pháp Công nghệ & Chuyển đổi Xanh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div class="loader" id="loader">
+  <div class="loader-logo">TPV</div>
+  <div class="loader-bar"><div class="loader-bar-inner"></div></div>
+  <div class="loader-text">Loading</div>
+</div>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Canvas BG -->
+<canvas id="bgCanvas"></canvas>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about">
+    <span data-lang="vi" class="active">Giới thiệu</span>
+    <span data-lang="en">About</span>
+    <span data-lang="zh">关于我们</span>
+  </a>
+  <a href="#mission">
+    <span data-lang="vi" class="active">Sứ mệnh</span>
+    <span data-lang="en">Mission</span>
+    <span data-lang="zh">使命</span>
+  </a>
+  <a href="#goals">
+    <span data-lang="vi" class="active">Mục tiêu</span>
+    <span data-lang="en">Goals</span>
+    <span data-lang="zh">目标</span>
+  </a>
+  <a href="#showcase">
+    <span data-lang="vi" class="active">Ứng dụng</span>
+    <span data-lang="en">Platform</span>
+    <span data-lang="zh">平台</span>
+  </a>
+  <a href="#services">
+    <span data-lang="vi" class="active">Dịch vụ</span>
+    <span data-lang="en">Services</span>
+    <span data-lang="zh">服务</span>
+  </a>
+  <a href="#contact">
+    <span data-lang="vi" class="active">Liên hệ</span>
+    <span data-lang="en">Contact</span>
+    <span data-lang="zh">联系我们</span>
+  </a>
+</div>
+
+<div class="wrapper">
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-icon">TPV</div>
+    <div class="logo-text">
+      TPV Technology
+      <span>GREEN TRANSFORMATION</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about" data-nav="about">
+      <span data-lang="vi" class="active">Giới thiệu</span>
+      <span data-lang="en">About</span>
+      <span data-lang="zh">关于我们</span>
+    </a></li>
+    <li><a href="#mission" data-nav="mission">
+      <span data-lang="vi" class="active">Sứ mệnh</span>
+      <span data-lang="en">Mission</span>
+      <span data-lang="zh">使命</span>
+    </a></li>
+    <li><a href="#goals" data-nav="goals">
+      <span data-lang="vi" class="active">Mục tiêu</span>
+      <span data-lang="en">Goals</span>
+      <span data-lang="zh">目标</span>
+    </a></li>
+    <li><a href="#showcase" data-nav="showcase">
+      <span data-lang="vi" class="active">Ứng dụng</span>
+      <span data-lang="en">Platform</span>
+      <span data-lang="zh">平台</span>
+    </a></li>
+    <li><a href="#services" data-nav="services">
+      <span data-lang="vi" class="active">Dịch vụ</span>
+      <span data-lang="en">Services</span>
+      <span data-lang="zh">服务</span>
+    </a></li>
+    <li><a href="#contact" data-nav="contact">
+      <span data-lang="vi" class="active">Liên hệ</span>
+      <span data-lang="en">Contact</span>
+      <span data-lang="zh">联系我们</span>
+    </a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang-btn="vi">VI</button>
+      <button class="lang-btn" data-lang-btn="en">EN</button>
+      <button class="lang-btn" data-lang-btn="zh">中</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-eyebrow">
+    <div class="hero-eyebrow-line"></div>
+    <div class="hero-eyebrow-text">
+      <span data-lang="vi" class="active">Công nghệ tiên tiến · Nông nghiệp bền vững</span>
+      <span data-lang="en">Advanced Technology · Sustainable Agriculture</span>
+      <span data-lang="zh">先进技术 · 可持续农业</span>
+    </div>
+  </div>
+
+  <h1 class="hero-title">
+    <span data-lang="vi" class="active">
+      <span class="accent">Giải pháp</span><br>Công nghệ &amp;<br><span class="red-accent">Chuyển đổi Xanh</span>
+    </span>
+    <span data-lang="en">
+      <span class="accent">Technology</span><br>Solutions &amp;<br><span class="red-accent">Green Transition</span>
+    </span>
+    <span data-lang="zh">
+      <span class="accent">科技解决方案</span><br>与<span class="red-accent">绿色转型</span>
+    </span>
+  </h1>
+
+  <p class="hero-sub">
+    <span data-lang="vi" class="active">Công ty TNHH Giải pháp Công nghệ và Chuyển đổi Xanh TPV — tiên phong ứng dụng công nghệ cao vào nông nghiệp, hướng tới một nền nông nghiệp thông minh, hiệu quả và bền vững tại Việt Nam.</span>
+    <span data-lang="en">TPV Technology Solutions &amp; Green Transformation Co., Ltd — pioneering high-tech agriculture solutions, driving Vietnam toward smart, efficient, and sustainable farming.</span>
+    <span data-lang="zh">TPV科技解决方案与绿色转型有限公司——引领高科技农业解决方案，推动越南走向智能、高效和可持续的农业未来。</span>
+  </p>
+
+  <div class="hero-cta">
+    <a href="#services" class="btn-primary">
+      <span data-lang="vi" class="active">Khám phá dịch vụ</span>
+      <span data-lang="en">Explore Services</span>
+      <span data-lang="zh">探索服务</span>
+    </a>
+    <a href="#contact" class="btn-outline">
+      <span data-lang="vi" class="active">Liên hệ ngay</span>
+      <span data-lang="en">Get in Touch</span>
+      <span data-lang="zh">立即联系</span>
+    </a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat-item">
+      <div class="hero-stat-num">4+</div>
+      <div class="hero-stat-label">
+        <span data-lang="vi" class="active">Dịch vụ chuyên biệt</span>
+        <span data-lang="en">Core Services</span>
+        <span data-lang="zh">核心服务</span>
+      </div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="hero-stat-num">100%</div>
+      <div class="hero-stat-label">
+        <span data-lang="vi" class="active">Công nghệ hiện đại</span>
+        <span data-lang="en">Modern Technology</span>
+        <span data-lang="zh">现代技术</span>
+      </div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="hero-stat-num">3</div>
+      <div class="hero-stat-label">
+        <span data-lang="vi" class="active">Thị trường mục tiêu</span>
+        <span data-lang="en">Target Markets</span>
+        <span data-lang="zh">目标市场</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-badge">
+    <div class="hero-badge-inner">
+      <div class="hero-badge-text">EST.</div>
+      <div class="hero-badge-num">2025</div>
+      <div class="hero-badge-text">VIETNAM</div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-indicator-text">Scroll</div>
+    <div class="scroll-indicator-line"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="tickerText"></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <div class="section-tag">
+      <span data-lang="vi" class="active">Về chúng tôi</span>
+      <span data-lang="en">About Us</span>
+      <span data-lang="zh">关于我们</span>
+    </div>
+    <h2 class="section-title">
+      <span data-lang="vi" class="active">Giới thiệu về <span class="accent">Công ty</span></span>
+      <span data-lang="en">About <span class="accent">Our Company</span></span>
+      <span data-lang="zh">关于<span class="accent">我们公司</span></span>
+    </h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-content reveal">
+      <div class="about-card">
+        <div class="about-card-title">TPV Technology Solutions &amp; Green</div>
+        <p data-lang="vi" class="active">Công ty TNHH Giải pháp Công nghệ và Chuyển đổi Xanh TPV là doanh nghiệp hoạt động trong lĩnh vực phát triển nông nghiệp công nghệ cao, với định hướng ứng dụng các giải pháp công nghệ tiên tiến và mô hình chuyển đổi xanh vào sản xuất nông nghiệp bền vững.</p>
+        <p data-lang="en">TPV Technology Solutions &amp; Green Transformation Co., Ltd. operates in the high-tech agriculture sector, with a focus on applying advanced technology solutions and green transformation models to sustainable agricultural production.</p>
+        <p data-lang="zh">TPV科技解决方案与绿色转型有限公司专注于高科技农业领域，致力于将先进技术解决方案和绿色转型模式应用于可持续农业生产。</p>
+
+        <div class="about-highlight">
+          <div class="highlight-item">
+            <div class="highlight-icon">🌱</div>
+            <div class="highlight-label">
+              <span data-lang="vi" class="active">Nông nghiệp bền vững</span>
+              <span data-lang="en">Sustainable Agriculture</span>
+              <span data-lang="zh">可持续农业</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">💡</div>
+            <div class="highlight-label">
+              <span data-lang="vi" class="active">Công nghệ cao</span>
+              <span data-lang="en">High Technology</span>
+              <span data-lang="zh">高新技术</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">🌍</div>
+            <div class="highlight-label">
+              <span data-lang="vi" class="active">Chuyển đổi xanh</span>
+              <span data-lang="en">Green Transition</span>
+              <span data-lang="zh">绿色转型</span>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">📊</div>
+            <div class="highlight-label">
+              <span data-lang="vi" class="active">Dữ liệu thông minh</span>
+              <span data-lang="en">Smart Data</span>
+              <span data-lang="zh">智能数据</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-visual reveal reveal-delay-2">
+      <div class="about-doc">
+        <div class="about-doc-header">
+          <div class="about-doc-icon">📄</div>
+          <div>
+            <div class="about-doc-title">
+              <span data-lang="vi" class="active">Giấy chứng nhận đăng ký doanh nghiệp</span>
+              <span data-lang="en">Business Registration Certificate</span>
+              <span data-lang="zh">企业注册证书</span>
+            </div>
+            <div class="about-doc-sub">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+          </div>
+        </div>
+        <div class="about-doc-row">
+          <span class="about-doc-key">
+            <span data-lang="vi" class="active">Mã số doanh nghiệp</span>
+            <span data-lang="en">Business Code</span>
+            <span data-lang="zh">企业代码</span>
+          </span>
+          <span class="about-doc-val">0113875904</span>
+        </div>
+        <div class="about-doc-row">
+          <span class="about-doc-key">
+            <span data-lang="vi" class="active">Tên công ty (Tiếng Anh)</span>
+            <span data-lang="en">Company Name (English)</span>
+            <span data-lang="zh">公司名称（英文）</span>
+          </span>
+          <span class="about-doc-val">TPV TECHNOLOGY SOLUTIONS AND GREEN TRANSFORMATION</span>
+        </div>
+        <div class="about-doc-row">
+          <span class="about-doc-key">
+            <span data-lang="vi" class="active">Ngày đăng ký</span>
+            <span data-lang="en">Registration Date</span>
+            <span data-lang="zh">注册日期</span>
+          </span>
+          <span class="about-doc-val">29/01/2025</span>
+        </div>
+        <div class="about-doc-row">
+          <span class="about-doc-key">
+            <span data-lang="vi" class="active">Địa chỉ</span>
+            <span data-lang="en">Address</span>
+            <span data-lang="zh">地址</span>
+          </span>
+          <span class="about-doc-val">128, Phường Hoàng Mai, Quận Hoàng Mai, Hà Nội</span>
+        </div>
+        <div class="about-doc-row">
+          <span class="about-doc-key">
+            <span data-lang="vi" class="active">Loại hình</span>
+            <span data-lang="en">Company Type</span>
+            <span data-lang="zh">公司类型</span>
+          </span>
+          <span class="about-doc-val">
+            <span class="badge-verified">✓ TNHH Nhiều TV</span>
+          </span>
+        </div>
+        <div class="about-doc-row">
+          <span class="about-doc-key">
+            <span data-lang="vi" class="active">Đại diện pháp lý</span>
+            <span data-lang="en">Legal Representative</span>
+            <span data-lang="zh">法定代表人</span>
+          </span>
+          <span class="about-doc-val">NGUYỄN CHÍ PHƯƠNG</span>
+        </div>
+        <div style="margin-top:12px;text-align:center;">
+          <span class="badge-verified" style="font-size:11px;padding:6px 16px;">✓ 
+            <span data-lang="vi" class="active">Đã xác minh &amp; hợp lệ</span>
+            <span data-lang="en">Verified &amp; Valid</span>
+            <span data-lang="zh">已验证有效</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section id="mission">
+  <div class="section-header reveal">
+    <div class="section-tag">
+      <span data-lang="vi" class="active">Định hướng</span>
+      <span data-lang="en">Direction</span>
+      <span data-lang="zh">方向</span>
+    </div>
+    <h2 class="section-title">
+      <span data-lang="vi" class="active">Sứ mệnh &amp; <span class="accent">Tầm nhìn</span></span>
+      <span data-lang="en">Mission &amp; <span class="accent">Vision</span></span>
+      <span data-lang="zh">使命与<span class="accent">愿景</span></span>
+    </h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="mission-grid">
+    <div class="mission-card reveal reveal-delay-1">
+      <div class="mission-icon">⚡</div>
+      <div class="mission-tag">
+        <span data-lang="vi" class="active">Sứ mệnh</span>
+        <span data-lang="en">Mission</span>
+        <span data-lang="zh">使命</span>
+      </div>
+      <h3>
+        <span data-lang="vi" class="active">Nâng cao hiệu quả nông nghiệp</span>
+        <span data-lang="en">Enhance Agricultural Efficiency</span>
+        <span data-lang="zh">提升农业效率</span>
+      </h3>
+      <p data-lang="vi" class="active">Ứng dụng công nghệ hiện đại để nâng cao hiệu quả sản xuất nông nghiệp, gia tăng giá trị nông sản và góp phần bảo vệ môi trường, hướng tới một nền nông nghiệp thông minh và bền vững.</p>
+      <p data-lang="en">Applying modern technology to improve agricultural production efficiency, increase the value of farm produce, and contribute to environmental protection, toward a smart and sustainable agriculture ecosystem.</p>
+      <p data-lang="zh">应用现代技术提高农业生产效率，增加农产品价值，并为保护环境做出贡献，迈向智能可持续的农业生态系统。</p>
+    </div>
+
+    <div class="mission-card reveal reveal-delay-2">
+      <div class="mission-icon">🎯</div>
+      <div class="mission-tag">
+        <span data-lang="vi" class="active">Tầm nhìn</span>
+        <span data-lang="en">Vision</span>
+        <span data-lang="zh">愿景</span>
+      </div>
+      <h3>
+        <span data-lang="vi" class="active">Tiên phong trong nông nghiệp công nghệ cao</span>
+        <span data-lang="en">Pioneer in High-Tech Agriculture</span>
+        <span data-lang="zh">高科技农业领域先驱</span>
+      </h3>
+      <p data-lang="vi" class="active">Trở thành đơn vị tiên phong cung cấp giải pháp công nghệ và chuyển đổi xanh cho nông nghiệp bền vững tại Việt Nam, hướng tới thị trường khu vực và quốc tế.</p>
+      <p data-lang="en">Become the leading provider of technology solutions and green transformation for sustainable agriculture in Vietnam, expanding toward regional and international markets.</p>
+      <p data-lang="zh">成为越南可持续农业技术解决方案和绿色转型的领先提供商，并向区域及国际市场扩展。</p>
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section id="goals">
+  <div class="section-header reveal">
+    <div class="section-tag">
+      <span data-lang="vi" class="active">Chiến lược</span>
+      <span data-lang="en">Strategy</span>
+      <span data-lang="zh">战略</span>
+    </div>
+    <h2 class="section-title">
+      <span data-lang="vi" class="active">Mục tiêu <span class="accent">chiến lược</span></span>
+      <span data-lang="en">Strategic <span class="accent">Goals</span></span>
+      <span data-lang="zh">战略<span class="accent">目标</span></span>
+    </h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="goals-grid">
+    <div class="goal-card reveal reveal-delay-1">
+      <div class="goal-num">01</div>
+      <div class="goal-icon-wrap">💡</div>
+      <div class="goal-title">
+        <span data-lang="vi" class="active">Chuyển đổi số &amp; xanh</span>
+        <span data-lang="en">Digital &amp; Green Transition</span>
+        <span data-lang="zh">数字化与绿色转型</span>
+      </div>
+      <div class="goal-desc">
+        <span data-lang="vi" class="active">Thúc đẩy chuyển đổi số và chuyển đổi xanh trong nông nghiệp thông qua việc cung cấp giải pháp công nghệ và mô hình sản xuất bền vững.</span>
+        <span data-lang="en">Drive digital and green transformation in agriculture by providing technology solutions and sustainable production models to farmers and agribusinesses.</span>
+        <span data-lang="zh">通过提供技术解决方案和可持续生产模式，推动农业的数字化和绿色转型。</span>
+      </div>
+    </div>
+
+    <div class="goal-card reveal reveal-delay-2">
+      <div class="goal-num">02</div>
+      <div class="goal-icon-wrap">🌐</div>
+      <div class="goal-title">
+        <span data-lang="vi" class="active">Hệ sinh thái nông nghiệp hiện đại</span>
+        <span data-lang="en">Modern Agricultural Ecosystem</span>
+        <span data-lang="zh">现代农业生态系统</span>
+      </div>
+      <div class="goal-desc">
+        <span data-lang="vi" class="active">Xây dựng hệ sinh thái nông nghiệp hiện đại gắn kết doanh nghiệp, người sản xuất và công nghệ nhằm tối ưu hiệu quả, minh bạch và phát triển lâu dài.</span>
+        <span data-lang="en">Build a modern agricultural ecosystem connecting businesses, producers, and technology to optimize efficiency, transparency, and long-term sustainable development.</span>
+        <span data-lang="zh">构建现代农业生态系统，连接企业、生产者和技术，实现效率最优、透明度提升和长期可持续发展。</span>
+      </div>
+    </div>
+
+    <div class="goal-card reveal reveal-delay-3">
+      <div class="goal-num">03</div>
+      <div class="goal-icon-wrap">🚀</div>
+      <div class="goal-title">
+        <span data-lang="vi" class="active">Nâng cao giá trị xuất khẩu</span>
+        <span data-lang="en">Enhance Export Value</span>
+        <span data-lang="zh">提升出口价值</span>
+      </div>
+      <div class="goal-desc">
+        <span data-lang="vi" class="active">Nâng cao giá trị và năng lực xuất khẩu nông sản bằng tư vấn tiêu chuẩn, quy trình và kết nối thị trường quốc tế cho doanh nghiệp Việt Nam.</span>
+        <span data-lang="en">Enhance the export value and capacity of agricultural products through standards consulting, process optimization, and international market connections for Vietnamese enterprises.</span>
+        <span data-lang="zh">通过标准咨询、流程优化和国际市场对接，提升越南企业农产品的出口价值和能力。</span>
+      </div>
+    </div>
+  </div>
+</section>
+""
+
+<!-- SHOWCASE / APP -->
+<section id="showcase">
+  <div class="section-header reveal">
+    <div class="section-tag">
+      <span data-lang="vi" class="active">Ứng dụng tiêu biểu</span>
+      <span data-lang="en">Featured Application</span>
+      <span data-lang="zh">典型应用</span>
+    </div>
+    <h2 class="section-title">
+      <span data-lang="vi" class="active">Nền tảng <span class="accent">Viễn thám Nông nghiệp</span></span>
+      <span data-lang="en">Agricultural <span class="accent">Remote Sensing Platform</span></span>
+      <span data-lang="zh">农业<span class="accent">遥感监测平台</span></span>
+    </h2>
+    <div class="section-divider"></div>
+    <p class="section-desc">
+      <span data-lang="vi" class="active">Hệ thống giám sát đất nông nghiệp thông minh sử dụng dữ liệu vệ tinh và AI để phân tích tình trạng cây trồng, phát hiện sâu bệnh và tối ưu hóa năng suất.</span>
+      <span data-lang="en">An intelligent agricultural land monitoring system using satellite data and AI to analyze crop conditions, detect pests and diseases, and optimize yield outcomes.</span>
+      <span data-lang="zh">智能农业土地监测系统，利用卫星数据和人工智能分析作物状况、检测病虫害并优化产量。</span>
+    </p>
+  </div>
+
+  <div class="showcase-layout">
+    <div class="dashboard-mock reveal">
+      <div class="dashboard-topbar">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+        <span class="dashboard-title-bar">
+          <span data-lang="vi" class="active">Tổng quan Viễn thám Nông nghiệp — Cập nhật: 04/03/2026 08:37</span>
+          <span data-lang="en">Agricultural Remote Sensing Dashboard — Updated: 04/03/2026 08:37</span>
+          <span data-lang="zh">农业遥感总览 — 更新：04/03/2026 08:37</span>
+        </span>
+      </div>
+      <div class="dashboard-body">
+        <div class="db-stats-row">
+          <div class="db-stat">
+            <div class="db-stat-label">
+              <span data-lang="vi" class="active">Tổng diện tích</span>
+              <span data-lang="en">Total Area</span>
+              <span data-lang="zh">总面积</span>
+            </div>
+            <div class="db-stat-val">121.2 <small style="font-size:0.6em">ha</small></div>
+          </div>
+          <div class="db-stat">
+            <div class="db-stat-label">
+              <span data-lang="vi" class="active">Phát triển tốt</span>
+              <span data-lang="en">Good Growth</span>
+              <span data-lang="zh">生长良好</span>
+            </div>
+            <div class="db-stat-val green">65.5 <small style="font-size:0.6em">ha</small></div>
+          </div>
+          <div class="db-stat">
+            <div class="db-stat-label">
+              <span data-lang="vi" class="active">Nguy cơ hại</span>
+              <span data-lang="en">Risk Area</span>
+              <span data-lang="zh">风险区域</span>
+            </div>
+            <div class="db-stat-val yellow">15.2 <small style="font-size:0.6em">ha</small></div>
+          </div>
+          <div class="db-stat">
+            <div class="db-stat-label">
+              <span data-lang="vi" class="active">Vùng bất thường</span>
+              <span data-lang="en">Anomaly Zone</span>
+              <span data-lang="zh">异常区域</span>
+            </div>
+            <div class="db-stat-val red">3</div>
+          </div>
+        </div>
+
+        <div class="db-chart-row">
+          <div class="db-chart">
+            <div class="db-chart-title">
+              <span data-lang="vi" class="active">Xu hướng NDVI (14 ngày qua)</span>
+              <span data-lang="en">NDVI Trend (Last 14 days)</span>
+              <span data-lang="zh">NDVI趋势（过去14天）</span>
+            </div>
+            <svg class="chart-svg" height="80" viewBox="0 0 300 80">
+              <defs>
+                <linearGradient id="ndviGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1DB954" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="#1DB954" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,50 C20,48 40,45 60,43 C80,41 100,44 120,40 C140,36 160,38 180,35 C200,32 220,34 240,30 C260,26 280,28 300,25" 
+                    fill="none" stroke="#1DB954" stroke-width="2"/>
+              <path d="M0,50 C20,48 40,45 60,43 C80,41 100,44 120,40 C140,36 160,38 180,35 C200,32 220,34 240,30 C260,26 280,28 300,25 L300,80 L0,80 Z" 
+                    fill="url(#ndviGrad)"/>
+            </svg>
+          </div>
+          <div class="db-chart">
+            <div class="db-chart-title">
+              <span data-lang="vi" class="active">Bản đồ rủi ro</span>
+              <span data-lang="en">Risk Heatmap</span>
+              <span data-lang="zh">风险热图</span>
+            </div>
+            <div class="heatmap-grid">
+              <div class="heatmap-cell" style="background:rgba(29,185,84,0.7)"></div>
+              <div class="heatmap-cell" style="background:rgba(29,185,84,0.5)"></div>
+              <div class="heatmap-cell" style="background:rgba(255,195,85,0.6)"></div>
+              <div class="heatmap-cell" style="background:rgba(29,185,84,0.3)"></div>
+              <div class="heatmap-cell" style="background:rgba(29,185,84,0.8)"></div>
+              <div class="heatmap-cell" style="background:rgba(255,100,100,0.5)"></div>
+              <div class="heatmap-cell" style="background:rgba(255,195,85,0.4)"></div>
+              <div class="heatmap-cell" style="background:rgba(29,185,84,0.6)"></div>
+              <div class="heatmap-cell" style="background:rgba(29,185,84,0.4)"></div>
+              <div class="heatmap-cell" style="background:rgba(29,185,84,0.9)"></div>
+              <div class="heatmap-cell" style="background:rgba(29,185,84,0.5)"></div>
+              <div class="heatmap-cell" style="background:rgba(255,100,100,0.3)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="showcase-info reveal reveal-delay-2">
+      <div class="showcase-feature">
+        <div class="sf-icon">🛰️</div>
+        <div>
+          <div class="sf-title">
+            <span data-lang="vi" class="active">Giám sát vệ tinh thời gian thực</span>
+            <span data-lang="en">Real-time Satellite Monitoring</span>
+            <span data-lang="zh">实时卫星监测</span>
+          </div>
+          <div class="sf-desc">
+            <span data-lang="vi" class="active">Theo dõi sức khỏe cây trồng qua chỉ số NDVI và ảnh vệ tinh cập nhật liên tục.</span>
+            <span data-lang="en">Monitor crop health via NDVI index and continuously updated satellite imagery.</span>
+            <span data-lang="zh">通过NDVI指数和持续更新的卫星图像监测作物健康状况。</span>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-feature">
+        <div class="sf-icon">🤖</div>
+        <div>
+          <div class="sf-title">
+            <span data-lang="vi" class="active">Phân tích AI thông minh</span>
+            <span data-lang="en">AI-Powered Analytics</span>
+            <span data-lang="zh">AI智能分析</span>
+          </div>
+          <div class="sf-desc">
+            <span data-lang="vi" class="active">Phát hiện sâu bệnh, dự báo năng suất và cảnh báo rủi ro tự động bằng trí tuệ nhân tạo.</span>
+            <span data-lang="en">Detect pests, forecast yields, and issue automated risk alerts powered by artificial intelligence.</span>
+            <span data-lang="zh">利用人工智能自动检测病虫害、预测产量并发出风险预警。</span>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-feature">
+        <div class="sf-icon">📋</div>
+        <div>
+          <div class="sf-title">
+            <span data-lang="vi" class="active">Nhật ký canh tác số hóa</span>
+            <span data-lang="en">Digitized Farming Logs</span>
+            <span data-lang="zh">数字化农事日志</span>
+          </div>
+          <div class="sf-desc">
+            <span data-lang="vi" class="active">Ghi chép và quản lý quy trình canh tác toàn bộ vòng đời cây trồng trên nền tảng số.</span>
+            <span data-lang="en">Record and manage the entire crop lifecycle farming process on a digital platform.</span>
+            <span data-lang="zh">在数字平台上记录和管理整个作物生命周期的农事过程。</span>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-feature">
+        <div class="sf-icon">🔗</div>
+        <div>
+          <div class="sf-title">
+            <span data-lang="vi" class="active">Truy xuất nguồn gốc minh bạch</span>
+            <span data-lang="en">Transparent Traceability</span>
+            <span data-lang="zh">透明溯源</span>
+          </div>
+          <div class="sf-desc">
+            <span data-lang="vi" class="active">Truy xuất nguồn gốc nông sản đầy đủ từ đồng ruộng đến tay người tiêu dùng.</span>
+            <span data-lang="en">Full farm-to-consumer traceability for agricultural products with blockchain-ready data.</span>
+            <span data-lang="zh">农产品从田间到消费者的全链条溯源，支持区块链数据。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header reveal">
+    <div class="section-tag">
+      <span data-lang="vi" class="active">Dịch vụ</span>
+      <span data-lang="en">Services</span>
+      <span data-lang="zh">服务</span>
+    </div>
+    <h2 class="section-title">
+      <span data-lang="vi" class="active">Dịch vụ của <span class="accent">chúng tôi</span></span>
+      <span data-lang="en">Our <span class="accent">Services</span></span>
+      <span data-lang="zh">我们的<span class="accent">服务</span></span>
+    </h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1">
+      <div class="svc-num">I</div>
+      <div class="svc-icon">💻</div>
+      <div class="svc-title">
+        <span data-lang="vi" class="active">Phát triển phần mềm</span>
+        <span data-lang="en">Software Development</span>
+        <span data-lang="zh">软件开发</span>
+      </div>
+      <ul class="svc-points">
+        <li>
+          <span data-lang="vi" class="active">Phát triển phần mềm chuyên biệt cho nông nghiệp công nghệ cao và chuyển đổi xanh</span>
+          <span data-lang="en">Specialized software development for high-tech agriculture and green transformation</span>
+          <span data-lang="zh">面向高科技农业和绿色转型的专业软件开发</span>
+        </li>
+        <li>
+          <span data-lang="vi" class="active">Hệ thống quản lý sản xuất, truy xuất nguồn gốc và chuỗi cung ứng nông sản</span>
+          <span data-lang="en">Production management, origin tracing, and agri-supply chain systems</span>
+          <span data-lang="zh">农业生产管理、产品溯源和供应链管理系统</span>
+        </li>
+        <li>
+          <span data-lang="vi" class="active">Số hóa dữ liệu và tối ưu vận hành chuỗi cung ứng nông sản</span>
+          <span data-lang="en">Data digitization and supply chain operation optimization for agribusiness</span>
+          <span data-lang="zh">农业数据数字化与供应链运营优化</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="svc-num">II</div>
+      <div class="svc-icon">🔧</div>
+      <div class="svc-title">
+        <span data-lang="vi" class="active">Tư vấn Công nghệ &amp; Chuyển đổi số</span>
+        <span data-lang="en">IT &amp; Digital Transformation Consulting</span>
+        <span data-lang="zh">信息技术与数字化转型咨询</span>
+      </div>
+      <ul class="svc-points">
+        <li>
+          <span data-lang="vi" class="active">Tư vấn áp dụng các công nghệ hiện đại trong canh tác nông nghiệp</span>
+          <span data-lang="en">Consulting on applying modern technologies in agricultural cultivation</span>
+          <span data-lang="zh">现代技术在农业种植中的应用咨询</span>
+        </li>
+        <li>
+          <span data-lang="vi" class="active">Tư vấn giải pháp chuyển đổi số cho quy trình kinh doanh, sản xuất và quản trị</span>
+          <span data-lang="en">Digital transformation consulting for business, production, and governance processes</span>
+          <span data-lang="zh">业务流程、生产和管理的数字化转型解决方案咨询</span>
+        </li>
+        <li>
+          <span data-lang="vi" class="active">Chuyển đổi mô hình kinh doanh theo xu hướng công nghệ xanh</span>
+          <span data-lang="en">Business model transformation aligned with green technology trends</span>
+          <span data-lang="zh">基于绿色技术趋势的商业模式转型</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal reveal-delay-3">
+      <div class="svc-num">III</div>
+      <div class="svc-icon">📍</div>
+      <div class="svc-title">
+        <span data-lang="vi" class="active">Tư vấn Mã số Vùng trồng &amp; Cơ sở đóng gói</span>
+        <span data-lang="en">Growing Area Code &amp; Packaging Facility Consulting</span>
+        <span data-lang="zh">种植区域代码与包装设施咨询</span>
+      </div>
+      <ul class="svc-points">
+        <li>
+          <span data-lang="vi" class="active">Tư vấn mã số vùng trồng (PUC) và cơ sở đóng gói cho xuất khẩu quốc tế</span>
+          <span data-lang="en">Consulting on growing area codes (PUC) and packaging facilities for international export</span>
+          <span data-lang="zh">面向国际出口的种植区代码（PUC）和包装设施咨询</span>
+        </li>
+        <li>
+          <span data-lang="vi" class="active">Hỗ trợ đáp ứng tiêu chuẩn từng thị trường nhập khẩu (EU, Nhật Bản, Trung Quốc...)</span>
+          <span data-lang="en">Support meeting standards of each importing market (EU, Japan, China, etc.)</span>
+          <span data-lang="zh">协助满足各进口市场标准（欧盟、日本、中国等）</span>
+        </li>
+        <li>
+          <span data-lang="vi" class="active">Quy trình cấp mã số vùng trồng hoàn chỉnh từ hồ sơ đến phê duyệt</span>
+          <span data-lang="en">Complete growing area code process from documentation to approval</span>
+          <span data-lang="zh">从申请文件到审批的完整种植区代码申领流程</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="service-card reveal reveal-delay-4">
+      <div class="svc-num">IV</div>
+      <div class="svc-icon">🌏</div>
+      <div class="svc-title">
+        <span data-lang="vi" class="active">Tư vấn Xuất khẩu Nông sản</span>
+        <span data-lang="en">Agricultural Export Consulting</span>
+        <span data-lang="zh">农产品出口咨询</span>
+      </div>
+      <ul class="svc-points">
+        <li>
+          <span data-lang="vi" class="active">Tư vấn xuất khẩu toàn diện từ xây dựng nhà xưởng, pháp lý đến giấy phép kinh doanh</span>
+          <span data-lang="en">Comprehensive export consulting from facility setup, legal compliance to business licensing</span>
+          <span data-lang="zh">从厂房建设、法律合规到经营许可证的全面出口咨询</span>
+        </li>
+        <li>
+          <span data-lang="vi" class="active">Thiết lập quy trình sản xuất đáp ứng tiêu chuẩn vệ sinh an toàn thực phẩm quốc tế</span>
+          <span data-lang="en">Establishing production processes meeting international food safety hygiene standards</span>
+          <span data-lang="zh">建立符合国际食品卫生安全标准的生产流程</span>
+        </li>
+        <li>
+          <span data-lang="vi" class="active">Kết nối thị trường quốc tế, nâng cao năng lực xuất khẩu và giảm thiểu rủi ro pháp lý</span>
+          <span data-lang="en">International market connections, enhanced export capacity, and minimized legal risks</span>
+          <span data-lang="zh">对接国际市场、提升出口能力、降低法律风险</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <div class="section-tag">
+      <span data-lang="vi" class="active">Liên hệ</span>
+      <span data-lang="en">Contact</span>
+      <span data-lang="zh">联系我们</span>
+    </div>
+    <h2 class="section-title">
+      <span data-lang="vi" class="active">Bắt đầu <span class="accent">hợp tác</span> ngay</span>
+      <span data-lang="en">Start <span class="accent">Collaboration</span> Now</span>
+      <span data-lang="zh">立即开始<span class="accent">合作</span></span>
+    </h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="contact-layout">
+    <div class="contact-form reveal">
+      <div class="form-group">
+        <label class="form-label">
+          <span data-lang="vi" class="active">Họ và tên</span>
+          <span data-lang="en">Full Name</span>
+          <span data-lang="zh">姓名</span>
+        </label>
+        <input type="text" class="form-input" placeholder="Nguyễn Văn A">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" placeholder="email@company.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">
+          <span data-lang="vi" class="active">Điện thoại</span>
+          <span data-lang="en">Phone</span>
+          <span data-lang="zh">电话</span>
+        </label>
+        <input type="tel" class="form-input" placeholder="+84 xxx xxx xxx">
+      </div>
+      <div class="form-group">
+        <label class="form-label">
+          <span data-lang="vi" class="active">Nội dung</span>
+          <span data-lang="en">Message</span>
+          <span data-lang="zh">留言内容</span>
+        </label>
+        <textarea class="form-input" placeholder="..."></textarea>
+      </div>
+      <button class="form-submit">
+        <span data-lang="vi" class="active">Gửi yêu cầu</span>
+        <span data-lang="en">Send Request</span>
+        <span data-lang="zh">发送请求</span>
+      </button>
+    </div>
+
+    <div class="contact-info reveal reveal-delay-2">
+      <div class="contact-item">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label">
+            <span data-lang="vi" class="active">Địa chỉ</span>
+            <span data-lang="en">Address</span>
+            <span data-lang="zh">地址</span>
+          </div>
+          <div class="ci-val">128, Phường Hoàng Mai, Quận Hoàng Mai, Hà Nội, Việt Nam</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📧</div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-val">tpv.solutions@gmail.com</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📱</div>
+        <div>
+          <div class="ci-label">
+            <span data-lang="vi" class="active">Điện thoại</span>
+            <span data-lang="en">Phone</span>
+            <span data-lang="zh">电话</span>
+          </div>
+          <div class="ci-val">+84 xxx xxx xxx</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">🌐</div>
+        <div>
+          <div class="ci-label">
+            <span data-lang="vi" class="active">Mạng xã hội</span>
+            <span data-lang="en">Social Media</span>
+            <span data-lang="zh">社交媒体</span>
+          </div>
+          <div class="ci-val">Facebook · LinkedIn · Zalo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="logo" style="text-decoration:none;">
+        <div class="logo-icon">TPV</div>
+        <div class="logo-text">
+          TPV Technology Solutions
+          <span>&amp; GREEN TRANSFORMATION</span>
+        </div>
+      </a>
+      <p data-lang="vi" class="active">Tiên phong trong lĩnh vực nông nghiệp công nghệ cao và chuyển đổi xanh tại Việt Nam. MST: 0113875904</p>
+      <p data-lang="en">Pioneer in high-tech agriculture and green transformation in Vietnam. Business Code: 0113875904</p>
+      <p data-lang="zh">越南高科技农业和绿色转型领域的先驱。企业代码：0113875904</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>
+        <span data-lang="vi" class="active">Dịch vụ</span>
+        <span data-lang="en">Services</span>
+        <span data-lang="zh">服务</span>
+      </h4>
+      <a href="#services">
+        <span data-lang="vi" class="active">Phát triển phần mềm</span>
+        <span data-lang="en">Software Development</span>
+        <span data-lang="zh">软件开发</span>
+      </a>
+      <a href="#services">
+        <span data-lang="vi" class="active">Tư vấn CNTT &amp; CĐS</span>
+        <span data-lang="en">IT &amp; Digital Consulting</span>
+        <span data-lang="zh">信息技术与数字化咨询</span>
+      </a>
+      <a href="#services">
+        <span data-lang="vi" class="active">Mã số vùng trồng</span>
+        <span data-lang="en">Growing Area Code</span>
+        <span data-lang="zh">种植区代码</span>
+      </a>
+      <a href="#services">
+        <span data-lang="vi" class="active">Tư vấn xuất khẩu</span>
+        <span data-lang="en">Export Consulting</span>
+        <span data-lang="zh">出口咨询</span>
+      </a>
+    </div>
+
+    <div class="footer-col">
+      <h4>
+        <span data-lang="vi" class="active">Công ty</span>
+        <span data-lang="en">Company</span>
+        <span data-lang="zh">公司</span>
+      </h4>
+      <a href="#about">
+        <span data-lang="vi" class="active">Giới thiệu</span>
+        <span data-lang="en">About Us</span>
+        <span data-lang="zh">关于我们</span>
+      </a>
+      <a href="#mission">
+        <span data-lang="vi" class="active">Sứ mệnh &amp; Tầm nhìn</span>
+        <span data-lang="en">Mission &amp; Vision</span>
+        <span data-lang="zh">使命与愿景</span>
+      </a>
+      <a href="#goals">
+        <span data-lang="vi" class="active">Mục tiêu chiến lược</span>
+        <span data-lang="en">Strategic Goals</span>
+        <span data-lang="zh">战略目标</span>
+      </a>
+      <a href="#contact">
+        <span data-lang="vi" class="active">Liên hệ</span>
+        <span data-lang="en">Contact</span>
+        <span data-lang="zh">联系我们</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2025 TPV Technology Solutions &amp; Green Transformation Co., Ltd. 
+      <span data-lang="vi" class="active">Bảo lưu mọi quyền.</span>
+      <span data-lang="en">All rights reserved.</span>
+      <span data-lang="zh">版权所有。</span>
+    </span>
+    <span>
+      <span data-lang="vi" class="active">Thiết kế bởi đội ngũ TPV</span>
+      <span data-lang="en">Designed by TPV Team</span>
+      <span data-lang="zh">由TPV团队设计</span>
+    </span>
+  </div>
+</footer>
+
+</div><!-- /wrapper -->
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<script src="index.js"></script>
+</body>
+</html>
