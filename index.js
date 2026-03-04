@@ -324,34 +324,4 @@ window.addEventListener('scroll', () => {
   }
 }, { passive: true });
 
-// ====== FORM INTERACTION ======
-const formSubmit = document.querySelector('.form-submit');
-if (formSubmit) {
-  formSubmit.addEventListener('click', (e) => {
-    e.preventDefault();
-    const btn = e.target;
-    const originalText = btn.textContent;
-    btn.textContent = '✓';
-    btn.style.background = '#14703D';
-    setTimeout(() => {
-      btn.innerHTML = '';
-      // Restore lang spans
-      const viSpan = document.createElement('span');
-      viSpan.dataset.lang = 'vi';
-      viSpan.className = currentLang === 'vi' ? 'active' : '';
-      viSpan.textContent = 'Gửi yêu cầu';
-      const enSpan = document.createElement('span');
-      enSpan.dataset.lang = 'en';
-      enSpan.className = currentLang === 'en' ? 'active' : '';
-      enSpan.textContent = 'Send Request';
-      const zhSpan = document.createElement('span');
-      zhSpan.dataset.lang = 'zh';
-      zhSpan.className = currentLang === 'zh' ? 'active' : '';
-      zhSpan.textContent = '发送请求';
-      btn.appendChild(viSpan);
-      btn.appendChild(enSpan);
-      btn.appendChild(zhSpan);
-      btn.style.background = '';
-    }, 2000);
-  });
-}
+

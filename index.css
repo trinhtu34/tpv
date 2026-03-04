@@ -997,9 +997,13 @@ section {
 
 /* === CONTACT === */
 #contact { background: var(--dark2); }
-.contact-layout {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 60px; align-items: center;
+.contact-info-only {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.contact-info-only .contact-info {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 .form-group { margin-bottom: 20px; }
 .form-label {
@@ -1217,7 +1221,9 @@ footer {
   section { padding: 80px 6vw; }
   
   .about-grid, .mission-grid, .goals-grid,
-  .services-grid, .contact-layout, .footer-top { grid-template-columns: 1fr; }
+  .services-grid, .footer-top { grid-template-columns: 1fr; }
+  
+  .contact-info-only .contact-info { grid-template-columns: 1fr; }
   
   .hero-badge { display: none; }
   .hero-stats { gap: 24px; flex-wrap: wrap; }
