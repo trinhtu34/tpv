@@ -564,3 +564,117 @@ function initLottieIcons() {
 window.addEventListener('load', () => {
   setTimeout(initLottieIcons, 1000);
 });
+
+// ====== FLOATING PARTICLES AROUND GLOBE ======
+function initFloatingParticles() {
+  const globeContainer = document.getElementById('heroGlobe');
+  if (!globeContainer || typeof THREE === 'undefined') return;
+
+  const globe = globeContainer.querySelector('canvas');
+  if (!globe) return;
+
+  // Get the globe's scene from Three.js
+  // We'll add particles to the same scene as the globe
+  // But since we can't access the scene directly, we'll create a separate overlay
+  const overlay = document.createElement('div');
+  overlay.style.position = 'absolute';
+  overlay.style.inset = '0';
+  overlay.style.pointerEvents = 'none';
+  globeContainer.appendChild(overlay);
+
+  const particleCount = 12;
+  const particles = [];
+
+  for (let i = 0; i < particleCount; i++) {
+    const p = document.createElement('div');
+    p.style.position = 'absolute';
+    p.style.width = Math.random() * 4 + 2 + 'px';
+    p.style.height = p.style.width;
+    p.style.borderRadius = '50%';
+    p.style.background = i === 0 ? '#CC1B1B' : '#2ECC71';
+    p.style.boxShadow = `0 0 ${Math.random() * 8 + 4}px ${i === 0 ? '#CC1B1B' : '#2ECC71'}`;
+    p.style.opacity = Math.random() * 0.6 + 0.3;
+    p.style.zIndex = '10';
+    overlay.appendChild(p);
+
+    // Random position around the globe (in pixels from center)
+    const angle = (Math.PI * 2 * i) / particleCount + Math.random() * 0.5;
+    const radius = 210 + Math.random() * 40; // Globe radius is 210px
+    const x = Math.cos(angle) * radius;
+    const y = Math.sin(angle) * radius * 0.6; // Slight tilt
+
+    p.style.left = (210 + x) + 'px';
+    p.style.top = (210 + y) + 'px';
+
+    particles.push({
+      element: p,
+      angle: angle,
+      radius: radius,
+      speed: Math.random() * 0.02 + 0.005,
+      tilt: Math.random() * 0.2
+    });
+  }
+
+  let time = 0;
+  function animateParticles() {
+    time += 0.016;
+    particles.forEach(p => {
+      p.angle += p.speed;
+      const x = Math.cos(p.angle) * p.radius;
+      const y = Math.sin(p.angle) * p.radius * p.tilt;
+      p.element.style.left = (210 + x) + 'px';
+      p.element.style.top = (210 + y) + 'px';
+      p.element.style.transform = `scale(${1 + Math.sin(time * 3 + p.angle) * 0.3})`;
+    });
+    requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
+}
+
+// Init floating particles after globe
+window.addEventListener('load', () => {
+  setTimeout(initFloatingParticles, 800);
+});
+
+// ====== FLOATING ELEMENTS (ORBS) ======
+function initFloatingOrbs() {
+  const orbCount = 4;
+  const positions = [
+    { top: '10%', left: '5%', delay: 0 },
+    { top: '15%', right: '5%', delay: 1 },
+    { bottom: '10%', left: '5%', delay: 2 },
+    { bottom: '15%', right: '5%', delay: 3 }
+  ];
+
+  positions.forEach((pos, i) => {
+    const orb = document.createElement('div');
+    orb.style.position = 'fixed';
+    orb.style.width = Math.random() * 100 + 80 + 'px';
+    orb.style.height = orb.style.width;
+    orb.style.borderRadius = '50%';
+    orb.style.background = `radial-gradient(circle, rgba(26,140,78,${0.08 + Math.random() * 0.05}) 0%, transparent 70%)`;
+    orb.style.zIndex = '1';
+    orb.style.pointerEvents = 'none';
+    orb.style.animation = `float ${Math.random() * 10 + 15}s ease-in-out infinite alternate`;
+    orb.style.animationDelay = pos.delay + 's';
+    
+    Object.assign(orb.style, pos);
+    document.body.appendChild(orb);
+  });
+
+  // Add CSS for float animation if not exists
+  if (!document.getElementById('float-anim-style')) {
+    const style = document.createElement('style');
+    style.id = 'float-anim-style';
+    style.textContent = `
+      @keyframes float {
+        0% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(20px, -30px) scale(1.1); }
+        100% { transform: translate(-20px, 30px) scale(0.9); }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}
+
+window.addEventListener('load', initFloatingOrbs);

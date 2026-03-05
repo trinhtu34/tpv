@@ -568,7 +568,18 @@ section {
 }
 
 /* === ABOUT === */
-#about { background: var(--dark2); }
+#about { 
+  background: var(--dark2);
+  position: relative;
+  overflow: hidden;
+}
+#about::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(26,140,78,0.05) 0%, transparent 60%),
+              radial-gradient(circle at 80% 70%, rgba(204,27,27,0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -678,7 +689,18 @@ section {
 }
 
 /* === MISSION === */
-#mission { background: var(--dark); }
+#mission { 
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+#mission::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(204,27,27,0.08) 0%, transparent 60%),
+              radial-gradient(circle at 70% 80%, rgba(26,140,78,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
 .mission-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 24px;
@@ -693,9 +715,9 @@ section {
   transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 .mission-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) scale(1.01);
   border-color: var(--green);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(26,140,78,0.15);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 0 1px rgba(26,140,78,0.15);
 }
 .mission-card::after {
   content: '';
@@ -727,7 +749,18 @@ section {
 }
 
 /* === GOALS === */
-#goals { background: var(--dark3); }
+#goals { 
+  background: var(--dark3);
+  position: relative;
+  overflow: hidden;
+}
+#goals::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(26,140,78,0.06) 0%, transparent 60%),
+              radial-gradient(circle at 30% 80%, rgba(204,27,27,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
 .goals-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 24px;
@@ -741,8 +774,8 @@ section {
   transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
 }
 .goal-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
   border-color: rgba(26,140,78,0.25);
 }
 .goal-num {
@@ -781,7 +814,18 @@ section {
 }
 
 /* === SHOWCASE === */
-#showcase { background: var(--dark2); }
+#showcase { 
+  background: var(--dark2);
+  position: relative;
+  overflow: hidden;
+}
+#showcase::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 80% 30%, rgba(26,140,78,0.05) 0%, transparent 60%),
+              radial-gradient(circle at 20% 70%, rgba(204,27,27,0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
 .showcase-layout {
   display: grid; grid-template-columns: 1.2fr 0.8fr;
   gap: 40px; align-items: start;
@@ -891,7 +935,18 @@ section {
 }
 
 /* === PROJECTS === */
-#projects { background: var(--dark); }
+#projects { 
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+#projects::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 40% 20%, rgba(26,140,78,0.08) 0%, transparent 60%),
+              radial-gradient(circle at 60% 80%, rgba(204,27,27,0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
 .projects-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 24px;
@@ -905,9 +960,9 @@ section {
   transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 .project-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) scale(1.01);
   border-color: rgba(26,140,78,0.3);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
 .project-card::before {
   content: '';
@@ -974,7 +1029,18 @@ section {
 }
 
 /* === SERVICES === */
-#services { background: var(--dark); }
+#services { 
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+#services::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 70% 40%, rgba(26,140,78,0.06) 0%, transparent 60%),
+              radial-gradient(circle at 30% 60%, rgba(204,27,27,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
 .services-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 24px;
@@ -988,9 +1054,9 @@ section {
   transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 .service-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px) scale(1.01);
   border-color: rgba(26,140,78,0.3);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
 }
 .service-card::before {
   content: '';
@@ -1039,7 +1105,18 @@ section {
 .svc-points li:last-child { border-bottom: none; }
 
 /* === CONTACT === */
-#contact { background: var(--dark2); }
+#contact { 
+  background: var(--dark2);
+  position: relative;
+  overflow: hidden;
+}
+#contact::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(26,140,78,0.05) 0%, transparent 60%),
+              radial-gradient(circle at 60% 80%, rgba(204,27,27,0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
 .contact-info-only {
   max-width: 720px;
   margin: 0 auto;
