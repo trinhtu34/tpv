@@ -405,6 +405,15 @@ function initGlobe() {
     { lat: 35.7, lon: 139.7, color: 0x1A8C4E, size: 0.025, name: 'Tokyo' },  // Japan
     { lat: 39.9, lon: 116.4, color: 0x1A8C4E, size: 0.025, name: 'Beijing' },  // China
     { lat: 48.9, lon: 2.35, color: 0x1A8C4E, size: 0.025, name: 'Paris' },   // EU
+    
+    // Additional countries
+    { lat: 38.7, lon: -77.0, color: 0x1A8C4E, size: 0.025, name: 'USA' },     // Mỹ (Washington DC area)
+    { lat: 1.35, lon: 103.8, color: 0x1A8C4E, size: 0.025, name: 'Singapore' },  // Singapore
+    { lat: -25.3, lon: 133.8, color: 0x1A8C4E, size: 0.025, name: 'Australia' },  // Australia
+    { lat: 51.0, lon: 10.4, color: 0x1A8C4E, size: 0.025, name: 'Germany' },  // Đức
+    { lat: 56.2, lon: 9.5, color: 0x1A8C4E, size: 0.025, name: 'Denmark' },   // Đan Mạch
+    { lat: 51.5, lon: -0.1, color: 0x1A8C4E, size: 0.025, name: 'UK' },       // Anh
+    { lat: 39.4, lon: -8.2, color: 0x1A8C4E, size: 0.025, name: 'Portugal' }, // Bồ Đào Nha
   ];
 
   locations.forEach(loc => {
@@ -433,15 +442,15 @@ function initGlobe() {
     }
   });
 
-  // Starfield background
+  // Starfield background - white dots like universe
   const starGeo = new THREE.BufferGeometry();
-  const starCount = 500;
+  const starCount = 2000;
   const starPos = new Float32Array(starCount * 3);
   for (let i = 0; i < starCount * 3; i++) {
-    starPos[i] = (Math.random() - 0.5) * 10;
+    starPos[i] = (Math.random() - 0.5) * 30;
   }
   starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
-  const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.02, transparent: true, opacity: 0.6 });
+  const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.025, transparent: true, opacity: 0.9 });
   const stars = new THREE.Points(starGeo, starMat);
   scene.add(stars);
 
@@ -479,7 +488,60 @@ function initGlobe() {
 // Init globe after page load
 window.addEventListener('load', () => {
   setTimeout(initGlobe, 500);
+  initHeroStars();
 });
+
+// ====== HERO STARFIELD BACKGROUND ======
+function initHeroStars() {
+  const canvas = document.getElementById('heroStars');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const hero = document.getElementById('hero');
+
+  function resize() {
+    canvas.width = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const stars = [];
+  for (let i = 0; i < 300; i++) {
+    stars.push({
+      x: Math.random(),
+      y: Math.random(),
+      r: Math.random() * 1.5 + 0.3,
+      o: Math.random() * 0.7 + 0.3,
+      speed: Math.random() * 0.003 + 0.001,
+      dx: (Math.random() - 0.5) * 0.00015,
+      dy: (Math.random() - 0.5) * 0.00015
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const t = Date.now() * 0.001;
+    stars.forEach(s => {
+      // Move stars slowly
+      s.x += s.dx;
+      s.y += s.dy;
+
+      // Wrap around edges
+      if (s.x < 0) s.x = 1;
+      if (s.x > 1) s.x = 0;
+      if (s.y < 0) s.y = 1;
+      if (s.y > 1) s.y = 0;
+
+      const flicker = 0.5 + 0.5 * Math.sin(t * s.speed * 200 + s.x * 100);
+      ctx.beginPath();
+      ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${s.o * flicker})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
 
 // ====== LOTTIE ANIMATED ICONS ======
 function initLottieIcons() {
