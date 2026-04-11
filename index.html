@@ -14,7 +14,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="index.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body>
@@ -140,79 +139,84 @@
 
 <!-- HERO -->
 <section id="hero">
-  <canvas id="heroStars"></canvas>
-  <div class="hero-eyebrow">
-    <div class="hero-eyebrow-line"></div>
-    <div class="hero-eyebrow-text">
-      <span data-lang="vi" class="active">Công nghệ tiên tiến · Nông nghiệp bền vững</span>
-      <span data-lang="en">Advanced Technology · Sustainable Agriculture</span>
-      <span data-lang="zh">先进技术 · 可持续农业</span>
+  <div class="hero-video-wrap">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+    <div class="scroll-indicator">
+      <div class="scroll-indicator-text">Scroll</div>
+      <div class="scroll-indicator-line"></div>
     </div>
   </div>
 
-  <h1 class="hero-title">
-    <span data-lang="vi" class="active">
-      <span class="accent">Giải pháp</span><br>Công nghệ &amp;<br><span class="red-accent">Chuyển đổi Xanh</span>
-    </span>
-    <span data-lang="en">
-      <span class="accent">Technology</span><br>Solutions &amp;<br><span class="red-accent">Green Transition</span>
-    </span>
-    <span data-lang="zh">
-      <span class="accent">科技解决方案</span><br>与<span class="red-accent">绿色转型</span>
-    </span>
-  </h1>
-
-  <p class="hero-sub">
-    <span data-lang="vi" class="active">Công ty TNHH Giải pháp Công nghệ và Chuyển đổi Xanh TPV — tiên phong ứng dụng công nghệ cao vào nông nghiệp, hướng tới một nền nông nghiệp thông minh, hiệu quả và bền vững tại Việt Nam.</span>
-    <span data-lang="en">TPV Technology Solutions &amp; Green Transformation Co., Ltd — pioneering high-tech agriculture solutions, driving Vietnam toward smart, efficient, and sustainable farming.</span>
-    <span data-lang="zh">TPV科技解决方案与绿色转型有限公司——引领高科技农业解决方案，推动越南走向智能、高效和可持续的农业未来。</span>
-  </p>
-
-  <div class="hero-cta">
-    <a href="#services" class="btn-primary">
-      <span data-lang="vi" class="active">Khám phá dịch vụ</span>
-      <span data-lang="en">Explore Services</span>
-      <span data-lang="zh">探索服务</span>
-    </a>
-    <a href="#contact" class="btn-outline">
-      <span data-lang="vi" class="active">Liên hệ ngay</span>
-      <span data-lang="en">Get in Touch</span>
-      <span data-lang="zh">立即联系</span>
-    </a>
-  </div>
-
-  <div class="hero-stats">
-    <div class="hero-stat-item">
-      <div class="hero-stat-num">20+</div>
-      <div class="hero-stat-label">
-        <span data-lang="vi" class="active">Dự án đã triển khai</span>
-        <span data-lang="en">Delivered Projects</span>
-        <span data-lang="zh">已交付项目</span>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <div class="hero-eyebrow-text">
+        <span data-lang="vi" class="active">Công nghệ tiên tiến · Nông nghiệp bền vững</span>
+        <span data-lang="en">Advanced Technology · Sustainable Agriculture</span>
+        <span data-lang="zh">先进技术 · 可持续农业</span>
       </div>
     </div>
-    <div class="hero-stat-item">
-      <div class="hero-stat-num">100%</div>
-      <div class="hero-stat-label">
-        <span data-lang="vi" class="active">Công nghệ hiện đại</span>
-        <span data-lang="en">Modern Technology</span>
-        <span data-lang="zh">现代技术</span>
+
+    <h1 class="hero-title">
+      <span data-lang="vi" class="active">
+        Tiên Phong<br><span class="red-accent">Giải pháp Công nghệ &amp; Chuyển đổi Xanh</span>
+      </span>
+      <span data-lang="en">
+        Pioneering<br><span class="red-accent">Technology Solutions &amp; Green Transition</span>
+      </span>
+      <span data-lang="zh">
+        引领<br><span class="red-accent">科技解决方案与绿色转型</span>
+      </span>
+    </h1>
+
+    <p class="hero-sub">
+      <span data-lang="vi" class="active">Công ty TNHH Giải pháp Công nghệ và Chuyển đổi Xanh TPV — tiên phong ứng dụng công nghệ cao vào nông nghiệp, hướng tới một nền nông nghiệp thông minh, hiệu quả và bền vững tại Việt Nam.</span>
+      <span data-lang="en">TPV Technology Solutions &amp; Green Transformation Co., Ltd — pioneering high-tech agriculture solutions, driving Vietnam toward smart, efficient, and sustainable farming.</span>
+      <span data-lang="zh">TPV科技解决方案与绿色转型有限公司——引领高科技农业解决方案，推动越南走向智能、高效和可持续的农业未来。</span>
+    </p>
+
+    <div class="hero-cta">
+      <a href="#services" class="btn-primary">
+        <span data-lang="vi" class="active">Khám phá dịch vụ</span>
+        <span data-lang="en">Explore Services</span>
+        <span data-lang="zh">探索服务</span>
+      </a>
+      <a href="#contact" class="btn-outline">
+        <span data-lang="vi" class="active">Liên hệ ngay</span>
+        <span data-lang="en">Get in Touch</span>
+        <span data-lang="zh">立即联系</span>
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">20+</div>
+        <div class="hero-stat-label">
+          <span data-lang="vi" class="active">Dự án đã triển khai</span>
+          <span data-lang="en">Delivered Projects</span>
+          <span data-lang="zh">已交付项目</span>
+        </div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">
+          <span data-lang="vi" class="active">Công nghệ hiện đại</span>
+          <span data-lang="en">Modern Technology</span>
+          <span data-lang="zh">现代技术</span>
+        </div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">15+</div>
+        <div class="hero-stat-label">
+          <span data-lang="vi" class="active">Thị trường mục tiêu</span>
+          <span data-lang="en">Target Markets</span>
+          <span data-lang="zh">目标市场</span>
+        </div>
       </div>
     </div>
-    <div class="hero-stat-item">
-      <div class="hero-stat-num">15+</div>
-      <div class="hero-stat-label">
-        <span data-lang="vi" class="active">Thị trường mục tiêu</span>
-        <span data-lang="en">Target Markets</span>
-        <span data-lang="zh">目标市场</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-globe" id="heroGlobe"></div>
-
-  <div class="scroll-indicator">
-    <div class="scroll-indicator-text">Scroll</div>
-    <div class="scroll-indicator-line"></div>
   </div>
 </section>
 
