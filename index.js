@@ -3,6 +3,37 @@
    Enhanced with 3D Globe, Lottie, Parallax
    ============================================ */
 
+// ====== THEME SYSTEM ======
+(function initTheme() {
+  const saved = localStorage.getItem('tpv-theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const newTheme = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('tpv-theme', newTheme);
+  updateThemeIcon(newTheme);
+}
+
+function updateThemeIcon(theme) {
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('themeToggle');
+  if (btn) btn.addEventListener('click', toggleTheme);
+  const saved = localStorage.getItem('tpv-theme') || 'light';
+  updateThemeIcon(saved);
+});
+
 // ====== LANGUAGE SYSTEM ======
 let currentLang = 'vi';
 
