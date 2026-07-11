@@ -9,37 +9,29 @@
 <meta property="og:title" content="TPV – Giải pháp Công nghệ & Chuyển đổi Xanh">
 <meta property="og:description" content="Tiên phong ứng dụng công nghệ cao vào nông nghiệp bền vững tại Việt Nam">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#005baa">
 <title>TPV – Giải pháp Công nghệ & Chuyển đổi Xanh</title>
+<link rel="icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="index.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </head>
 <body>
 
-<!-- Loading Screen -->
-<div class="loader" id="loader">
-  <div class="loader-logo">TPV</div>
-  <div class="loader-bar"><div class="loader-bar-inner"></div></div>
-  <div class="loader-text">Loading</div>
-</div>
-
-<!-- Progress Bar -->
-<div class="progress-bar" id="progressBar"></div>
-
-<!-- Custom Cursor -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- Gradient Mesh Background -->
-<div class="gradient-mesh"></div>
-
-<!-- Canvas BG -->
-<canvas id="bgCanvas"></canvas>
+<a class="skip-link" href="#main-content">
+  <span data-lang="vi" class="active">Bỏ qua đến nội dung</span>
+  <span data-lang="en">Skip to content</span>
+  <span data-lang="zh">跳至主要内容</span>
+</a>
 
 <!-- Mobile Nav Overlay -->
-<div class="mobile-nav" id="mobileNav">
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-lang-row" aria-label="Mobile language">
+    <button class="lang-btn active" data-lang-btn="vi" aria-label="Tiếng Việt">VI</button>
+    <button class="lang-btn" data-lang-btn="en" aria-label="English">EN</button>
+    <button class="lang-btn" data-lang-btn="zh" aria-label="中文">中</button>
+  </div>
   <a href="#about">
     <span data-lang="vi" class="active">Giới thiệu</span>
     <span data-lang="en">About</span>
@@ -77,12 +69,12 @@
   </a>
 </div>
 
-<div class="wrapper">
+<div class="wrapper" id="main-content">
 
 <!-- NAV -->
-<nav id="navbar">
+<nav id="navbar" class="nav">
   <a href="#" class="logo">
-    <div class="logo-icon">TPV</div>
+    <div class="logo-icon"><img class="logo-img" src="favicon.ico" alt=""></div>
     <div class="logo-text">
       TPV Technology
       <span>GREEN TRANSFORMATION</span>
@@ -126,13 +118,17 @@
     </a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:12px;">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
-    <div class="lang-switcher">
-      <button class="lang-btn active" data-lang-btn="vi">VI</button>
-      <button class="lang-btn" data-lang-btn="en">EN</button>
-      <button class="lang-btn" data-lang-btn="zh">中</button>
+    <a href="#contact" class="nav-contact">
+      <span data-lang="vi" class="active">Trao đổi dự án</span>
+      <span data-lang="en">Discuss a project</span>
+      <span data-lang="zh">洽谈项目</span>
+    </a>
+    <div class="lang-switcher" aria-label="Language">
+      <button class="lang-btn active" data-lang-btn="vi" aria-label="Tiếng Việt">VI</button>
+      <button class="lang-btn" data-lang-btn="en" aria-label="English">EN</button>
+      <button class="lang-btn" data-lang-btn="zh" aria-label="中文">中</button>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -141,10 +137,22 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-video-wrap">
-    <video class="hero-video" autoplay muted loop playsinline>
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
       <source src="hero-bg.mp4" type="video/mp4">
     </video>
     <div class="hero-video-overlay"></div>
+    <div class="hero-media-top">
+      <span>TPV / EARTH INTELLIGENCE</span>
+      <span class="live-signal"><i></i> SYSTEM ONLINE</span>
+    </div>
+    <div class="hero-media-caption">
+      <strong>
+        <span data-lang="vi" class="active">Công nghệ quan sát Trái Đất</span>
+        <span data-lang="en">Earth observation technology</span>
+        <span data-lang="zh">地球观测技术</span>
+      </strong>
+      <span>21.0285° N / 105.8542° E</span>
+    </div>
     <div class="scroll-indicator">
       <div class="scroll-indicator-text">Scroll</div>
       <div class="scroll-indicator-line"></div>
@@ -163,13 +171,13 @@
 
     <h1 class="hero-title">
       <span data-lang="vi" class="active">
-        Tiên Phong<br><span class="red-accent">Giải pháp Công nghệ &amp; Chuyển đổi Xanh</span>
+        Tiên phong <span class="red-accent">Giải pháp Công nghệ &amp; Chuyển đổi Xanh</span>
       </span>
       <span data-lang="en">
-        Pioneering<br><span class="red-accent">Technology Solutions &amp; Green Transition</span>
+        Pioneering <span class="red-accent">Technology Solutions &amp; Green Transition</span>
       </span>
       <span data-lang="zh">
-        引领<br><span class="red-accent">科技解决方案与绿色转型</span>
+        引领 <span class="red-accent">科技解决方案与绿色转型</span>
       </span>
     </h1>
 
@@ -478,8 +486,6 @@
     </div>
   </div>
 </section>
-""
-
 <!-- SHOWCASE / APP -->
 <section id="showcase">
   <div class="section-header reveal">
@@ -1035,7 +1041,7 @@
         <div class="ci-icon">📧</div>
         <div>
           <div class="ci-label">Email</div>
-          <div class="ci-val">tpv.techsolution@gmail.com</div>
+          <a class="ci-val" href="mailto:tpv.techsolution@gmail.com">tpv.techsolution@gmail.com</a>
         </div>
       </div>
       <div class="contact-item">
@@ -1046,7 +1052,7 @@
             <span data-lang="en">Phone</span>
             <span data-lang="zh">电话</span>
           </div>
-          <div class="ci-val">+84 838 882 883</div>
+          <a class="ci-val" href="tel:+84838882883">+84 838 882 883</a>
         </div>
       </div>
       <div class="contact-item">
@@ -1065,11 +1071,11 @@
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer class="footer">
   <div class="footer-top">
     <div class="footer-brand">
       <a href="#" class="logo" style="text-decoration:none;">
-        <div class="logo-icon">TPV</div>
+        <div class="logo-icon"><img class="logo-img" src="favicon.ico" alt=""></div>
         <div class="logo-text">
           TPV Technology Solutions
           <span>&amp; GREEN TRANSFORMATION</span>
