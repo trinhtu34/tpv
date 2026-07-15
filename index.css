@@ -1,4 +1,4 @@
-/* TPV Technology - enterprise green technology interface */
+/* Binh Phuc - enterprise green technology interface */
 
 :root {
   --font-sans: "Be Vietnam Pro", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -2514,6 +2514,112 @@ body {
   letter-spacing: 0.08em;
 }
 
+.logo-text .company-name {
+  display: block;
+  max-width: 285px;
+  color: #001f4d;
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+.logo-text .company-name span {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: 0;
+  line-height: inherit;
+  text-transform: none;
+  opacity: 1;
+}
+
+.logo-text .logo-tagline {
+  margin-top: 2px;
+  font-size: 8px;
+  letter-spacing: 0.07em;
+}
+
+.footer .logo-text .company-name {
+  color: #ffffff;
+}
+
+/* Transparent logo treatment and centered footer */
+.logo-icon,
+#navbar.scrolled .logo-icon,
+.footer .logo-icon {
+  overflow: visible;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.logo-img {
+  padding: 0;
+  object-fit: contain;
+}
+
+.footer .logo-img {
+  filter: brightness(0) invert(1);
+  opacity: 0.94;
+}
+
+.footer-top {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
+  text-align: center;
+}
+
+.footer-brand,
+.footer-col {
+  width: 100%;
+  text-align: center;
+}
+
+.footer-brand .logo {
+  justify-content: center;
+}
+
+.footer-brand p,
+.footer-col p {
+  margin-inline: auto;
+}
+
+.footer-col a {
+  margin-inline: auto;
+}
+
+.footer-bottom {
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+@media (max-width: 960px) {
+  .footer-top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+}
+
 .nav-links {
   gap: 2px;
 }
@@ -2573,6 +2679,89 @@ body {
   background:
     linear-gradient(90deg, rgba(3,27,54,0.78) 0%, rgba(3,27,54,0.62) 37%, rgba(3,27,54,0.28) 68%, rgba(3,27,54,0.36) 100%),
     linear-gradient(180deg, rgba(3,27,54,0.04), rgba(3,27,54,0.42));
+}
+
+/* Static enterprise technology background: no video asset is loaded in the hero. */
+.hero-video-wrap {
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 52% 64% at 78% 40%, rgba(0, 159, 218, 0.22), transparent 68%),
+    radial-gradient(circle at 67% 68%, rgba(0, 104, 180, 0.26), transparent 22%),
+    linear-gradient(120deg, #031b36 0%, #062d57 54%, #041b36 100%);
+}
+
+.hero-video-wrap::before,
+.hero-video-wrap::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.hero-video-wrap::before {
+  top: 50%;
+  right: -210px;
+  width: min(64vw, 920px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(112, 210, 245, 0.22);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 25%, #66d1f4 0 3px, transparent 4px),
+    radial-gradient(circle at 68% 38%, #66d1f4 0 3px, transparent 4px),
+    radial-gradient(circle at 30% 72%, #66d1f4 0 3px, transparent 4px),
+    radial-gradient(circle at 67% 76%, #66d1f4 0 3px, transparent 4px),
+    repeating-radial-gradient(ellipse at center, transparent 0 84px, rgba(84, 195, 236, 0.16) 85px 86px, transparent 87px 144px);
+  box-shadow:
+    inset 0 0 0 76px rgba(3, 27, 54, 0.08),
+    0 0 100px rgba(0, 150, 220, 0.12);
+  transform: translateY(-50%) rotate(-14deg);
+  will-change: transform, opacity;
+  animation: hero-orbit 72s linear infinite;
+}
+
+.hero-video-wrap::after {
+  inset: 0;
+  opacity: 0.44;
+  background-image:
+    linear-gradient(rgba(118, 206, 241, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(118, 206, 241, 0.11) 1px, transparent 1px);
+  background-size: 92px 92px;
+  background-position: 0 0, 0 0;
+  mask-image: linear-gradient(90deg, transparent 30%, #000 68%, transparent 100%);
+  will-change: background-position, opacity;
+  animation: hero-grid-drift 24s linear infinite;
+}
+
+@keyframes hero-orbit {
+  0% {
+    opacity: 0.82;
+    transform: translateY(-50%) rotate(-14deg) scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-50%) rotate(166deg) scale(1.035);
+  }
+
+  100% {
+    opacity: 0.82;
+    transform: translateY(-50%) rotate(346deg) scale(1);
+  }
+}
+
+@keyframes hero-grid-drift {
+  0% {
+    opacity: 0.3;
+    background-position: 0 0, 0 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.3;
+    background-position: 92px 92px, -92px 92px;
+  }
 }
 
 .hero-media-caption {

@@ -8,6 +8,12 @@
     zh: "智慧农业技术 · 卫星遥感 · 数字化转型 · 绿色农业 · 数据分析 · 农产品出口 · 农业人工智能"
   };
 
+  const pageTitles = {
+    vi: "Công ty TNHH Khoa học công nghệ Bình Phúc – Giải pháp Công nghệ & Chuyển đổi Xanh",
+    en: "Binh Phuc Science and Technology Co., Ltd. – Technology Solutions & Green Transformation",
+    zh: "Binh Phuc Science and Technology Co., Ltd. – Technology Solutions & Green Transformation"
+  };
+
   const icons = {
     leaf: '<path d="M20 4C12 4.5 6 9.5 5.2 17.2"/><path d="M20 4c.2 8.6-4.7 14.7-12.8 15.2"/><path d="M4 20c3.7-6.3 8.7-10.3 15-12"/>',
     satellite: '<path d="M9.5 14.5 5 19"/><path d="m14.5 9.5 4.5-4.5"/><rect x="8.5" y="8.5" width="7" height="7" rx="1.5" transform="rotate(45 12 12)"/><path d="M4 8l4-4 3.2 3.2-4 4z"/><path d="M12.8 16.8 16 20l4-4-3.2-3.2"/><path d="M18.5 9.5c1.3 1.3 2.1 2.9 2.4 4.7"/><path d="M3.1 9.8c.3 1.8 1.1 3.4 2.4 4.7"/>',
@@ -65,6 +71,7 @@
     const nextLang = languages.includes(lang) ? lang : "vi";
     document.documentElement.lang = nextLang;
     document.documentElement.dataset.currentLang = nextLang;
+    document.title = pageTitles[nextLang] || pageTitles.vi;
 
     document.querySelectorAll("[data-lang]").forEach((element) => {
       element.classList.toggle("active", element.dataset.lang === nextLang);
@@ -86,11 +93,11 @@
       ticker.textContent = `${text}     ·     ${text}     ·     `;
     }
 
-    safeStorageSet("tpv-language", nextLang);
+    safeStorageSet("binhphuc-language", nextLang);
   }
 
   function initLanguage() {
-    const savedLang = safeStorageGet("tpv-language");
+    const savedLang = safeStorageGet("binhphuc-language");
     const initialLang = languages.includes(savedLang) ? savedLang : "vi";
 
     document.querySelectorAll("[data-lang-btn]").forEach((button) => {
